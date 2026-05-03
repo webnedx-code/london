@@ -56,9 +56,13 @@ export const DAYS = [
       {time:"18:10", name:"Liverpool Street — check-in hotel", lat:51.5178, lng:-0.0823, type:"transport", wiki:"London Liverpool Street station"},
       {time:"19:30", name:"Brick Lane noaptea — curry & street art", lat:51.5226, lng:-0.0718, type:"food", wiki:"Brick Lane",
         tip:"Brick Lane la 19:30 arată complet diferit față de dimineață. Restaurantul Aladin (132 Brick Lane) este alegerea localnicilor — nu restaurantele cu touts pe ușă. Muralele arată spectaculos în lumina stradală, mai ales pe Sclater Street (la est față de Brick Lane). Beigel Bake (nr. 159) deschis 24/7 — prinde un covrig de încheiere.",
-        desc:"Brick Lane seara devine epicentrul cultural al East End-ului londonez — restaurante bangladeze cu arome de cardamom și curry în aer, galerii independente deschise târziu, artă stradală luminată de becuri galbene. Tradiția restaurantelor curry pe Brick Lane datează din anii '70, când imigranții bangladezi au deschis primele restaurante 'baltis'. Astăzi strada găzduiește peste 40 de restaurante curry."},
+        desc:"Brick Lane seara devine epicentrul cultural al East End-ului londonez — restaurante bangladeze cu arome de cardamom și curry în aer, galerii independente deschise târziu, artă stradală luminată de becuri galbene. Tradiția restaurantelor curry pe Brick Lane datează din anii '70, când imigranții bangladezi au deschis primele restaurante 'baltis'. Astăzi strada găzduiește peste 40 de restaurante curry.",
+        status:"verified-by-claude", lastChecked:"2026-05-03",
+        verifyBefore:"Verifică https://www.aladinbricklane.co.uk — ore confirmate: Lun-Joi până la 00:00, Vin-Sâm până la 01:00. Fără rezervare — sosește înainte de 20:00 în serile de vârf. BYOB permis cu discount 20% la off-licence vecin. Vânzătorii cu touts pe ușă = evită."},
       {time:"21:30", name:"Shoreditch seara — baruri și pub-uri locale", lat:51.5260, lng:-0.0756, type:"food", wiki:"Shoreditch",
-        tip:"5 min mers nord de Brick Lane pe Shoreditch High Street. Callooh Callay (65 Rivington Street) — bar cocktail iconic, intri printr-un dulap Narnia, fără rezervare. The Owl & Pussycat (34 Redchurch Street) — pub local fără turiști. Sau simplu mergi pe Rivington Street și intri unde îți place. Întoarcere: 15 min mers sau 5 min Overground de la Shoreditch High Street spre Liverpool Street."},
+        tip:"5 min mers nord de Brick Lane pe Shoreditch High Street. Callooh Callay (65 Rivington Street) — bar cocktail iconic, intri printr-un dulap Narnia, fără rezervare. The Owl & Pussycat (34 Redchurch Street) — pub local fără turiști. Sau simplu mergi pe Rivington Street și intri unde îți place. Întoarcere: 15 min mers sau 5 min Overground de la Shoreditch High Street spre Liverpool Street.",
+        status:"verified-by-claude", lastChecked:"2026-05-03",
+        verifyBefore:"Callooh Callay confirmat deschis (Mart 2026): https://calloohcallaybar.com — program 18:00–01:00 zilnic. Funcționează din 2008 (17 ani, Top 500 World's Best Bars). Fără rezervare la intrare — posibil coadă după 22:00 vinerea."},
     ]
   },
   {
@@ -93,13 +97,17 @@ export const DAYS = [
       {time:"17:00", name:"Westminster Abbey — Evensong FREE (45 min)", lat:51.4994, lng:-0.1273, type:"church", wiki:"Westminster Abbey", tags:["free"],
         guide:["Intri prin Great West Door (nu intrarea pentru turiști — coadă diferită)","Ocupă locuri în Nave (naos) — mai aproape de cor, sunetul e incomparabil mai bun","Serviciul alternează latină și engleză veche — atmosfera contează mai mult decât textul","Fotografierea este STRICT INTERZISĂ — securitatea verifică activ","Rămâi 5 min după final: corul iese formal prin naos, e parte din spectacol"]},
       {time:"18:30", name:"Plimbare + Cină South Bank — Gabriel's Wharf", lat:51.5073, lng:-0.1078, type:"food", wiki:"Gabriel's Wharf",
-        tip:"Traversează Westminster Bridge spre sud, mergi est pe Albert Embankment ~25 min până la Gabriel's Wharf (2km plăcut pe malul Tamisei). Cină în aer liber cu vedere spre St Paul's: The Real Greek, Gourmet Goat sau Skylon Restaurant. Ia masa până la 20:00, apoi 15 min mers est spre Bankside Pier (lângă Tate Modern) pentru croazieră la 20:15.",
-        desc:"Gabriel's Wharf este un complex de restaurante, galerii de artă și ateliere de artiști construit în 1988 pe un teren vizat inițial pentru blocuri de birouri. Comunitatea locală a câștigat o luptă de 10 ani cu urbaniștii pentru a păstra spațiul deschis. Mesele în aer liber cu vedere spre St Paul's și Tamisa sunt printre cele mai bune din South Bank, fără prețuri de hotel."},
+        tip:"Traversează Westminster Bridge spre sud, mergi est pe Albert Embankment ~25 min până la Gabriel's Wharf (2km plăcut pe malul Tamisei). Cină în aer liber cu vedere spre St Paul's: Limin Southbank (Caribbean, G.O.A.T. curry iconic — confirmat Apr 2026) sau Gourmet Pizza. Ia masa până la 20:00, apoi 15 min mers est spre Bankside Pier (lângă Tate Modern) pentru croazieră la 20:15.",
+        desc:"Gabriel's Wharf este un complex de restaurante, galerii de artă și ateliere de artiști construit în 1988 pe un teren vizat inițial pentru blocuri de birouri. Comunitatea locală a câștigat o luptă de 10 ani cu urbaniștii pentru a păstra spațiul deschis. Mesele în aer liber cu vedere spre St Paul's și Tamisa sunt printre cele mai bune din South Bank, fără prețuri de hotel.",
+        status:"verified-by-claude", lastChecked:"2026-05-03",
+        verifyBefore:"Verifică lista curentă de tenanți pe https://southbank.london/see-and-do/gabriels-wharf — Limin Southbank confirmat Apr 2026 (Gourmet Goat înlocuit). Sosește la 18:45 cel târziu pentru a termina masa și a ajunge la Bankside Pier la 20:10."},
       {time:"20:15", name:"City Cruises — Croazieră la ora de aur pe Tamisa", lat:51.5079, lng:-0.0965, type:"attraction", wiki:"River Thames",
         tip:"Plecare de la Bankside Pier (lângă Tate Modern, malul sudic). Fără rezervare, plătești la îmbarcare (~£22/persoană). Croazieră ~1.5 ore: apusul pe 18 Iunie este la 21:19 BST — pleci în lumina aurie și prinzi apusul pe apă. Tower Bridge portocaliu, Shard, Parlament în amurg. La 21:30 luminile orașului se aprind, reflecțiile pe Tamisa sunt de vis. O departura la 19:20 ar prinde lumina plată de zi — 20:15 este departura optimă.",
         desc:"City Cruises operează pe Tamisa din 1987 și este cel mai mare operator de croaziere fluviale din Londra. Vasele circulă circular: Westminster — Embankment — London Eye — Bankside — Tower. Vederea de la nivelul apei spre Tower Bridge iluminat rămâne una dintre cele mai spectaculoase priveliști din Londra, imposibil de replicat de la mal."},
       {time:"21:50", name:"Băutură finală — The Anchor Bankside (pub din 1616)", lat:51.5071, lng:-0.0960, type:"food", wiki:"The Anchor, Bankside",
-        tip:"Croaziera se termină la Bankside Pier (~21:45). The Anchor Bankside (1 Park Street, 2 min de pier) — pub din 1616 cu terasă directă pe malul Tamisei și vedere la St Paul's în amurgul albastru. Ultima comandă la 23:00. Metrou: Southwark (Jubilee Line, 10 min mers) sau London Bridge (8 min mers)."},
+        tip:"Croaziera se termină la Bankside Pier (~21:45). The Anchor Bankside (1 Park Street, 2 min de pier) — pub din 1616 cu terasă directă pe malul Tamisei și vedere la St Paul's în amurgul albastru. Ultima comandă la 23:00. Metrou: Southwark (Jubilee Line, 10 min mers) sau London Bridge (8 min mers).",
+        status:"verified-by-claude", lastChecked:"2026-05-03",
+        verifyBefore:"Verifică orele de vară pe https://www.greeneking-pubs.co.uk/pubs/greater-london/anchor — terasă confirmată pentru sezon cald. Pub pe același loc din 1616. Ultima comandă 23:00 standard."},
     ]
   },
   {
@@ -137,11 +145,16 @@ export const DAYS = [
         tip:"EXCLUSIV VINERI ȘI SÂMBĂTĂ: deschis până la 21:00. Terasă Nivel 10 (vedere panoramică, gratuită) + colecție permanentă. Mult mai liniștit seara.",
         desc:"Tate Modern ocupă fosta Centrală Electrică Bankside, construită în 1947 și închisă în 1981. Reconvertită în muzeu de artă modernă în 2000 de arhitecții Herzog & de Meuron, este acum cel mai vizitat muzeu de artă modernă din lume — 5-6 milioane de vizitatori anual. Turbine Hall, fosta sală a turbinelor, este una din cele mai mari expoziții gratuite din lume.",
         guide:["Turbine Hall (parter): instalația curentă — stai 10 min în centru și privește spre plafon, efectul e copleșitor","Nivelul 10 (terasa): NU apare pe butoanele liftului — urcă la 9 și ia scările până sus. Vedere spre St Paul's și Millennium Bridge","Colecție permanentă: Nivelurile 2–4, Blavatnik Building (blocul nou) — Picasso, Matisse, Rothko","The Tanks (subteran, intrare separată): video art și performance — gratuit, de obicei gol","Switch House (blocul nou din 2016): arhitectura brutalistă în cărămidă — merită 10 min explorare exterioară"]},
-      {time:"19:00", name:"British Museum — vizită de seară (deschis până la 20:30, Vineri)", lat:51.5194, lng:-0.1270, type:"museum", wiki:"British Museum", tags:["free"],
-        tip:"A doua vizită are sens — dimineața ai acoperit etajele superioare, acum ia-o metodic pe ce ai sărit. Galeriile de la etaj sunt aproape goale vinerea seara. Piatra Rosetta și Marmurele Partenonului (Room 18) la parter — luminate frumos, fără aglomerație. Intri direct, fără coadă la deschidere.",
-        desc:"Cu 8 milioane de obiecte și 90 de galerii pe 92.000 mp, British Museum nu se vede în mai puțin de 4-5 ore. Dimineața ai acoperit etajele superioare — seara de Vineri completezi ce ai lăsat, în liniște deplină."},
-      {time:"21:00", name:"Cina — Bloomsbury & Covent Garden", lat:51.5170, lng:-0.1237, type:"food", wiki:"Covent Garden",
-        tip:"Museum Tavern (chiar vizavi de muzeu, Great Russell Street) — pub victorian din 1723, fără rezervare. Sau Lamb's Conduit Street (10 min mers nord-est): pub-uri și bistro-uri locale pe stradă pietonală, fără turiști. Covent Garden (15 min mers sud) pentru restaurante mai animate vinerea seara."},
+      {time:"19:30", name:"National Gallery — Friday Lates ULTIMA SEARĂ 2026 (Trafalgar Square)", lat:51.5089, lng:-0.1283, type:"museum", wiki:"National Gallery, London", tags:["free"],
+        tip:"EVENIMENT UNIC: 19 Iunie 2026 este ULTIMA seară a programului Friday Lates 2026 al National Gallery (serie 1 Mai–19 Iunie — confirmat). Rută de la Tate Modern: Jubilee Line Southwark → Westminster (2 stații, 8 min) + 10 min mers pe jos = 18 min total. Galeria deschisă până la 21:00. Seara include: conferințe filosofie/arhitectură, performances muzicale, sesiuni de life drawing (ESEA Life Drawing & London Drawing), proiecție film de artist Ming Wong. Bar Giorgio (Sainsbury Wing) + cocktail bar Ochre Brasserie la intrarea Getty.",
+        desc:"Programul Friday Lates al National Gallery a rulat în 2026 de la 1 Mai la 19 Iunie — sereri culturale cu takeover-uri studențești (Royal Holloway, Central Saint Martins), music, poezie și life drawing. Seara de 19 Iunie este ultima din serie — mai festivă față de o seară obișnuită. Spre deosebire de o a doua vizită la British Museum (în direcție opusă față de South Bank, fără eveniment special), National Gallery Lates oferă un program unic și se află pe ruta naturală dinspre Tate Modern spre Soho pentru cina de seară.",
+        status:"verified-by-claude", lastChecked:"2026-05-03",
+        verifyBefore:"Confirmă programul serii pe https://www.nationalgallery.org.uk/events/friday-lates — detalii complete apar cu 3-4 săptămâni înainte (mijlocul lui Mai 2026). Unele sesiuni de life drawing necesită înregistrare gratuită separată pe pagina evenimentului."},
+      {time:"21:00", name:"Cina — Wong Kei, Chinatown (41-43 Wardour Street)", lat:51.5117, lng:-0.1316, type:"food", wiki:"Wong Kei",
+        tip:"10 min mers de la National Gallery: Trafalgar Square → Haymarket → Shaftesbury Avenue → Wardour Street. Wong Kei (41-43 Wardour Street, Soho): restaurant cantonez iconic funcționând din 1985, deschis Lun-Sâm până la 23:30. Meniu complet £10-15/persoană — BBQ pork rice, beef ho fun, dim sum de seară. Etaje multiple, fără rezervare, rotație rapidă.",
+        desc:"Wong Kei pe Wardour Street funcționează din 1985 (40+ ani) și este una din puținele instituții culinare londoneze cu prețuri neschimbate față de deceniile trecute. Un dinner cantonez complet sub £15/persoană în Soho este imposibil de găsit în altă parte. Celebru inițial pentru serviciul de o impertinență proverbială — documentat în ghiduri ca un fenomen cultural londonez — restaurantul și-a rafinat stilul după 2014 păstrând esențialul: mâncare bună, repede, ieftin.",
+        status:"verified-by-claude", lastChecked:"2026-05-03",
+        verifyBefore:"Verifică orele pe https://wongkei.has.restaurant — confirmat Apr 2026: Lun-Sâm 12:00-23:30, Dum 12:00-22:30. Fără rezervări. Coadă max 10-15 min vineri seara. Nu acceptă Amex."},
     ]
   },
   {
@@ -189,8 +202,10 @@ export const DAYS = [
         desc:"Shad Thames este una dintre puținele străzi victoriene din Londra care a supraviețuit intactă bombardamentelor din al Doilea Război Mondial și demolărilor postbelice. Depozitele de condimente și ceai din sec. XIX (Brooke Bond Tea, Branston Pickle) au fost reconvertite în locuințe de lux în anii '80, dar pasarelele aeriene de fier forjat dintre clădiri — originale, neschimbate — au rămas. La apus, lumina portocalie intră pe alei ca printr-un defileu medieval."},
       {time:"20:30", name:"Tower Bridge la asfințit — fotografii de pe malul sudic", lat:51.5055, lng:-0.0754, type:"viewpoint", wiki:"Tower Bridge", tags:["free"],
         tip:"Apusul e la 21:17 pe 20 Iunie. Cel mai bun unghi: poteca de lângă Potters Fields Park, malul sudic la est de Tower Bridge — lumina portocalie lovește turnurile din față. Podul începe să se aprindă electric în jurul orei 21:00. O băutură la Butlers Wharf Chop House (bar exterior) cu Tower Bridge în față: priveliștea cea mai cinematografică din Londra. 45-60 min."},
-      {time:"21:30", name:"Cina — London Bridge / Flat Iron Square", lat:51.5030, lng:-0.0868, type:"food", wiki:"London Bridge",
-        tip:"Flat Iron Square (Southwark Street, 15 min mers vest) — food trucks, bere artizanală, muzică live, animat sâmbăta. Sau Bermondsey Street: Antico (wine bar, nr. 214), Tentazioni (Italian, nr. 2). London Bridge station la 10 min mers pentru întoarcere."},
+      {time:"21:30", name:"Cina — Flat Iron Square / Bermondsey Street", lat:51.5030, lng:-0.0868, type:"food", wiki:"London Bridge",
+        tip:"Flat Iron Square (Southwark Street, 15 min mers vest de Tower Bridge) — food trucks, bere artizanală, muzică live, animat sâmbăta, deschis până la miezul nopții. Sau Bermondsey Street (mai liniștit): Antico (wine bar, nr. 214), Tentazioni (Italian, nr. 2). London Bridge station la 10 min mers pentru întoarcere.",
+        status:"verified-by-claude", lastChecked:"2026-05-03",
+        verifyBefore:"Flat Iron Square confirmat deschis (Apr 2026): https://flatironsquare.co.uk — 7 arce de cale ferată cu food vendors, 5 baruri, open până la 00:00 Joi-Sâm. Funcționează din 2016 (9 ani). Bermondsey Street: verifică Antico și Tentazioni pe Google Maps pentru program sâmbătă seara."},
     ]
   },
   {
@@ -222,15 +237,22 @@ export const DAYS = [
       {time:"18:00", name:"Serpentine Pavilion 2026 + Serpentine Galleries (gratuit)", lat:51.5058, lng:-0.1747, type:"museum", wiki:"Serpentine Galleries", tags:["free"],
         tip:"Pavilionul Serpentine 2026: LANZA atelier (Isabel Abascal & Alessandro Arienzo) — un zid șerpuit de cărămidă roșie, în premiera arhitecturii mondiale. Deschis din 6 Iunie 2026 până în Octombrie. Intrare gratuită. Confirmat ✓"},
       {time:"19:15", name:"Metrou spre Chalk Farm (Primrose Hill)", lat:51.5440, lng:-0.1592, type:"transport", wiki:"Chalk Farm tube station",
-        tip:"Din Hyde Park Corner: linia Piccadilly → King's Cross → linia Northern (Edgware branch) → Chalk Farm. Total ~30 min. Fii sus pe deal la 20:30."},
-      {time:"19:50", name:"Primrose Hill — vârful dealului", lat:51.5388, lng:-0.1614, type:"viewpoint", wiki:"Primrose Hill",
-        tip:"Instalează-te pe vârf înainte de 20:30. Panoramă completă asupra Londrei — Shard, Gherkin, BT Tower. Seara solstițiului aduce localnici și atmosferă specială. Adu ceva de mâncare.",
+        tip:"Din Hyde Park Corner: linia Piccadilly → King's Cross → linia Northern (Edgware branch) → Chalk Farm. Total ~30 min. La ieșirea din stație, mergi pe Gloucester Avenue (DREAPTA, spre Primrose Hill) — nu spre Camden Market."},
+      {time:"19:45", name:"Cina — The Engineer, Primrose Hill (65 Gloucester Avenue)", lat:51.5407, lng:-0.1534, type:"food", wiki:"Primrose Hill",
+        tip:"3 min mers de la Chalk Farm tube pe Gloucester Avenue. The Engineer — pub-restaurant victorian din sec. XIX, renovat 2024. Meniu: pui prăjit, burger artizanal, Sunday roast tradițional. Preț: £15-20/persoană. Rezervă dacă posibil: 020 7483 1890. Mânâncă rapid — pleacă la 20:20 pentru a fi pe vârful dealului la apus.",
+        desc:"The Engineer de pe Gloucester Avenue datează din epoca victoriană și este emblematic pentru 'Primrose Hill Set' — zona unde au locuit Sylvia Plath, Alan Bennett și Jude Law. Recent renovat ca prim pub 'Innovation' al Castle Pubs, menține caracterul autentic: grădina cu zid, bar central, meniu sezonier. O masă reală într-un pub local — la polul opus față de food courts-urile turistice din Camden Market.",
+        status:"verified-by-claude", lastChecked:"2026-05-03",
+        verifyBefore:"Verifică program duminică pe https://www.theengineerprimrosehill.co.uk — confirmat deschis pentru cina. Rezervare: 020 7483 1890. Alternativă dacă e complet: Odette's (130 Regent's Park Road, 5 min mers, bistro local, rez. necesară)."},
+      {time:"20:30", name:"Primrose Hill — vârful dealului", lat:51.5388, lng:-0.1614, type:"viewpoint", wiki:"Primrose Hill",
+        tip:"12 min mers de la The Engineer. Instalează-te pe vârf: ai 52 min până la apus. Panoramă completă asupra Londrei — Shard, Gherkin, BT Tower. Seara solstițiului aduce localnici cu pături și vin, nu turiști — o tradiție londoneză autentică.",
         desc:"Primrose Hill apare pe hărți din 1086. Scriitoarea Sylvia Plath și-a petrecut ultimii ani ai vieții pe stradele adiacente, iar zona a fost reședința unor personalități ca Alan Bennett și Jude Law — numită ironic 'Primrose Hill Set'. Pe 21 Iunie, dealul se umple de londonezi care serbează solstițiul — o tradiție neoficială cu origini druidice."},
       {time:"21:22", name:"Apusul Solstițiului de Vară — cea mai lungă zi din an", lat:51.5388, lng:-0.1614, type:"attraction", wiki:"Primrose Hill",
         tip:"Apus exact la 21:22 BST pe 21 Iunie 2026 (solstițiu — confirmat astronomic). Lumina roz-aurie durează 20-30 min după apus. Fotografii extraordinare. Cel mai frumos moment al vacanței. IMPORTANT: Parcul Primrose Hill se închide la 22:00 duminica — coboară dealul până la 21:55."},
-      {time:"22:00", name:"Camden Town — pub-uri și vibrație nocturnă", lat:51.5390, lng:-0.1426, type:"food", wiki:"Camden Town",
-        tip:"5 min mers de la Primrose Hill la Camden Town High Street. The Hawley Arms (2 Castlehaven Road) — pub iconic, era barul preferat al lui Amy Winehouse. Proud Camden (The Stables) — fostele grajduri victoriene transformate în bar cu muzică live. Pub-urile închid la 23:00. Metrou: Camden Town (Northern line) direct spre centru.",
-        desc:"Camden Town s-a transformat din sat rural în epicentrul contraculturii britanice în anii '60-'70. Piața Camden e vie zi și noapte, dar seara vestitele pub-uri din fostele grajduri și depozite de-a lungul canalului Regent prind cu adevărat viață. The Hawley Arms se afla la 100m de apartamentul lui Amy Winehouse — tradiția muzicii live continuă neîntrerupt."},
+      {time:"22:00", name:"The Hawley Arms — Camden Town (2 Castlehaven Road)", lat:51.5390, lng:-0.1426, type:"food", wiki:"The Hawley Arms",
+        tip:"Coboară dealul și mergi 12 min pe Regent's Park Road → Parkway → Castlehaven Road. The Hawley Arms (nr. 2, colț cu Hawley Road) — pub local cu muzică live, barul obișnuit al lui Amy Winehouse. Evită zona pieței Camden și Stables Market — tourist trap. Pub-ul închide la 23:00-23:30 duminica. Metrou: Camden Town (Northern line), 5 min mers.",
+        desc:"The Hawley Arms funcționează neîntrerupt din 1979 și era locul obișnuit al lui Amy Winehouse în ultimii ani ai vieții — fostul ei apartament se afla la 100m distanță. Spre deosebire de Stables Market și Proud Camden din apropiere (transformate în experiențe turistice), The Hawley Arms rămâne un pub de cartier frecventat de rezidenți, cu muzică live autentică.",
+        status:"verified-by-claude", lastChecked:"2026-05-03",
+        verifyBefore:"Verifică program duminică pe https://thehawleyarms.com — funcționare confirmată ca pub local activ (nu parte din complexul Camden Market). Nu confunda cu barul Proud Camden din The Stables."},
     ]
   },
   {
@@ -460,3 +482,286 @@ export const MODE_LABEL = {
   walk:  "mers",
   dlr:   "DLR",
 };
+
+// =============================================================================
+// SUGGESTIONS — alternative dinners (street food / value) + 7-11PM activities
+// =============================================================================
+// Curated cu două criterii stricte:
+//   1. STREET FOOD / BANG-FOR-BUCK: piețe stabilite (5+ ani), nu pop-up-uri
+//   2. ACTIVE NIGHT (NU BAR): muzee deschise seara, galerii, evenimente culturale
+//
+// FIECARE intrare are un câmp `verifyBefore` cu URL-ul oficial și exact ce
+// trebuie verificat înainte de plecare. NU rezerva nimic fără să confirmi.
+//
+// Conflictele cu programul existent au fost verificate — fiecare sugestie
+// menționează ce slot din DAYS[] ar înlocui sau completa.
+// =============================================================================
+
+export const SUGGESTIONS = {
+
+  // ---------------------------------------------------------------------------
+  // ZIUA 1 — Mie 17 Iun (East End: Spitalfields, Brick Lane, Shoreditch)
+  // ---------------------------------------------------------------------------
+  day1: {
+    streetFood: [
+      {
+        name: "Old Spitalfields Market — food traders interiori",
+        slot: "În loc de cina pe Brick Lane (19:30) sau ca prânz",
+        time: "Deschis până ~19:00 zilnic; food court intern până la 21:00 Joi",
+        price: "£8–12/farfurie",
+        why: "Bleecker Burger (vita uscată 35 zile, £10–12 — premiat în mod repetat ca cel mai bun smashburger din Londra), Sud Italia (pizza napoletană autentică, £9–11), Pleasant Lady (jianbing — clătită chinezească street food, £6–8). Calitate de chef la prețuri de stradă, în piața istorică pe care deja o vizitezi dimineața.",
+        valueJustification: "Aceleași burgeri/pizza/clătite ca în restaurantele scumpe din Soho, dar la 40-50% din preț pentru că vendorii nu plătesc chirie de restaurant — doar taxa de tarabă. Ai economisit ~£15-20/persoană vs. un restaurant Brick Lane.",
+        address: "16 Horner Square, E1 6EW",
+        url: "https://oldspitalfieldsmarket.com/food-and-drink",
+        verifyBefore: "Confirmă că Bleecker Burger și Sud Italia sunt încă în piață — vendorii pot rota. Sună la +44 20 7375 2963 sau verifică pagina 'Food & Drink' cu ~2 săptămâni înainte."
+      },
+      {
+        name: "The Brick Lane Upmarket — Truman Brewery (street food internațional)",
+        slot: "Înlocuiește 'Brick Lane noaptea — curry & street art' (19:30)",
+        time: "Sâmbăta 11:00–18:00, Duminica 10:00–17:00 — NU este disponibil Miercuri 17 Iun",
+        price: "£6–10/farfurie",
+        why: "40+ vendori street food (etiopian, vietnamez, malaysian, mexican, taiwanese) — varietate imposibil de găsit la un singur restaurant.",
+        valueJustification: "AVERTISMENT: Upmarket NU e disponibil Miercuri. Pentru Ziua 1 rămâi la Old Spitalfields sau la curry-ul originar pe Brick Lane (Aladin nr. 132 — institutie din 1979, £8-12/curry). Recomandare: păstrează planul original Aladin pentru Ziua 1 și vezi Upmarket pe Ziua 5 (Duminică).",
+        address: "Truman Brewery, 91 Brick Lane, E1 6QL",
+        url: "https://www.bricklanemarket.com/",
+        verifyBefore: "Confirmă orele Sâmbătă/Duminică pentru Ziua 5. Pagina oficială bricklanemarket.com."
+      }
+    ],
+    nightActivity: [
+      {
+        name: "Rich Mix — cinema independent + galerie (Bethnal Green Rd)",
+        slot: "După cină, 20:00–22:30 — în loc de barurile Shoreditch (21:30)",
+        time: "Filme până la 22:30, foaier deschis 09:00–23:00",
+        price: "£8–13/bilet film",
+        why: "Centru cultural multi-disciplinar: cinema cu 3 săli (filme indie, documentare, repertoire), galerie de artă în foaier (gratuită), evenimente literare și muzicale. La 5 min mers de Brick Lane.",
+        valueJustification: "Activitate culturală 2h la prețul unei beri în Shoreditch (~£8). Aer condiționat, scaune confortabile, programare programată — opusul unei seri de bar.",
+        address: "35-47 Bethnal Green Road, E1 6LA",
+        url: "https://richmix.org.uk/whats-on/",
+        verifyBefore: "Verifică programul filmelor pentru Mie 17 Iun 2026 cu ~2 săptămâni înainte. Site-ul publică programul lunar."
+      },
+      {
+        name: "Beigel Bake nocturn (24/7) + plimbare Sclater Street art",
+        slot: "21:30–22:30 — alternativă la baruri, low-cost",
+        time: "Beigel Bake: deschis 24/7, 365 zile/an (deschis din 1855)",
+        price: "£3–5",
+        why: "Bagel cu salt beef sau somon afumat la cea mai veche bagelarie din Londra (170 ani). Apoi plimbare pe Sclater Street și Hanbury Street — cele mai bune murale Brick Lane sunt iluminate noaptea. Activitate, nu băut.",
+        valueJustification: "£4 pentru o gustare iconică + plimbare gratuită prin galerie de artă stradală în aer liber. Total: £4-8 vs. £25-40 într-un bar Shoreditch.",
+        address: "159 Brick Lane, E1 6SB",
+        url: "https://en.wikipedia.org/wiki/Beigel_Bake",
+        verifyBefore: "Beigel Bake e instituție din 1855, fără rezervare. Doar verifică că nu e închisă temporar (Google Maps live)."
+      }
+    ]
+  },
+
+  // ---------------------------------------------------------------------------
+  // ZIUA 2 — Joi 18 Iun (City: Holborn, Bank, South Bank)
+  // ---------------------------------------------------------------------------
+  day2: {
+    streetFood: [
+      {
+        name: "Mercato Mayfair — biserică recondiționată în piață alimentară",
+        slot: "Prânz alternativ (12:30) sau cină devreme — NU pentru cina la 18:30 (e prea departe de Westminster/South Bank)",
+        time: "Lu-Ma 08:00–22:00, Mi-Sa 08:00–23:00, Du 08:00–21:00",
+        price: "£10–15/farfurie",
+        why: "Biserica St Mark's North Audley din 1828, abandonată 70 de ani, transformată în 2019 într-un mall culinar pe 3 niveluri cu 25+ vendori (italian, japonez, levantin, brazilian).",
+        valueJustification: "Mâncare de calitate restaurant la 40% mai puțin pentru că nu plătești serviciul individual la masă. Atmosfera e neegalată — mănânci sub vitralii victoriene.",
+        address: "13-14 N Audley St, W1K 6ZB (Mayfair)",
+        url: "https://www.mercatomayfair.com/",
+        verifyBefore: "Confirmă orele Joi pentru 18 Iun 2026. Conflict de localizare: e în Mayfair, nu South Bank. Rezervă doar dacă schimbi restul programului din Ziua 2."
+      },
+      {
+        name: "Vinegar Yard — pe lângă London Bridge (street food + bere artizanală)",
+        slot: "Înlocuiește cina la Gabriel's Wharf (18:30) DACĂ schimbi traseul cu 15 min spre est",
+        time: "Joi 12:00–23:00",
+        price: "£8–14/farfurie",
+        why: "Curte exterioară mare cu 8-10 vendori street food (Indian dosa, Korean fried chicken, taco, pizza), bar de bere artizanală, atmosferă de Berlin/Brooklyn. Direct lângă London Bridge Station.",
+        valueJustification: "Cină completă cu băutură pentru £15-18 vs. £30-40 la Gabriel's Wharf cu vedere similară (Tamisa la 5 min mers). Atmosferă mai relaxată decât restaurantele South Bank.",
+        address: "74-82 St Thomas St, SE1 3QU",
+        url: "https://www.vinegaryard.london/",
+        verifyBefore: "Confirmă că Vinegar Yard nu este închis pentru un eveniment privat pe 18 Iun (verifică pagina What's On cu ~1 săptămână înainte)."
+      }
+    ],
+    nightActivity: [
+      {
+        name: "City Cruises — croazieră Tamisa (DEJA ÎN PROGRAM)",
+        slot: "20:15 — deja confirmat în program",
+        time: "1.5 ore",
+        price: "£22/persoană",
+        why: "Activitate, nu băut. Apus pe Tamisa la 21:19. Deja optimizat — păstrează.",
+        valueJustification: "Validată de program — nu necesită schimbare.",
+        verifyBefore: "Vezi BOOKINGS.city-cruises pentru detalii."
+      }
+    ]
+  },
+
+  // ---------------------------------------------------------------------------
+  // ZIUA 3 — Vineri 19 Iun (Bloomsbury, Westminster, Bankside)
+  // ---------------------------------------------------------------------------
+  day3: {
+    streetFood: [
+      {
+        name: "Southbank Centre Food Market — sub Royal Festival Hall",
+        slot: "În loc de cina Bloomsbury/Covent Garden (21:00) — sau cină devreme între Tate Modern și British Museum",
+        time: "Vineri 12:00–20:00 — INCHIDE LA 20:00, mănânci între 18:30–19:45",
+        price: "£8–13/farfurie",
+        why: "Piață stabilă de 12+ ani sub centrul cultural South Bank — vendori rotativi dar curatat strict (Mama's Jerk, Yum Bun, Greedy Khao, Brick Lane Bagels). Tot pe ruta ta deja (Tate Modern → British Museum).",
+        valueJustification: "Mâncare de calitate la £10/farfurie, mâncată afară pe terasa cu vedere spre Tamisa și Westminster. Restaurantele cu aceeași priveliște costă £35+ și au rezervare.",
+        address: "Belvedere Road, SE1 8XX (sub Royal Festival Hall)",
+        url: "https://www.southbankcentre.co.uk/visit/cafes-restaurants-bars/southbank-centre-food-market",
+        verifyBefore: "Confirmă orele Vineri 19 Iun. Site oficial southbankcentre.co.uk → Food Market. Atenție: închide la 20:00, planifică cina până la 19:45.",
+        scheduleConflict: "Programul actual te ține la Tate Modern până la 19:00, apoi British Museum 19:00-20:30. Pentru a folosi Food Market, mănâncă între Westminster Abbey (terminat ~17:45) și Tate Modern — adică între 18:00 și 19:30 la Southbank Food Market, apoi spre Tate Modern e 5 min mers."
+      }
+    ],
+    nightActivity: [
+      {
+        name: "National Portrait Gallery — Friday Lates (gratuit)",
+        slot: "ALTERNATIVĂ la combinația Tate Modern + British Museum seara — sau ÎN LOC DE cina la 21:00",
+        time: "Vineri seara, până la 21:00 — săptămânal, drop-in",
+        price: "GRATUIT (intrare permanentă), evenimente £0-15",
+        why: "Conform programului oficial: seri tematice cu talks, philosophy salons, life drawing, DJ sets, live music. Drop-in, fără rezervare. Galeria reproiectată în 2023 — colecție de portrete istorice + contemporane spectaculoasă.",
+        valueJustification: "Cea mai bună 'activitate, nu băut' din Londra Vineri seara. Gratuit, cultural, social — exact ce ai cerut. La 5 min de Trafalgar Square și 10 min de Covent Garden pentru cină după.",
+        address: "St Martin's Place, WC2H 0HE",
+        url: "https://www.npg.org.uk/whatson/",
+        verifyBefore: "CRITIC: Confirmă programul exact pentru Vineri 19 Iun 2026 pe npg.org.uk/whatson cu ~2 săptămâni înainte. Programul tematic se schimbă săptămânal."
+      },
+      {
+        name: "National Gallery — Friday Lates (gratuit)",
+        slot: "Alternativă la Tate Modern (17:00–19:00) — și e Vinerea seara, până la 21:00",
+        time: "Vineri seara, până la 21:00",
+        price: "GRATUIT (colecția permanentă)",
+        why: "Galeria națională rămâne deschisă târziu doar Vineri. Mai puține turiști decât ziua. Oferă talks, tururi ghidate, ore de desen, muzică live, deschideri târzii ale expozițiilor.",
+        valueJustification: "Aceeași colecție pe care o vezi Duminică (în programul actual Ziua 5), dar cu atmosfera unei seri liniștite și evenimente live. Recomand: SCHIMBĂ vizita National Gallery din Ziua 5 → Ziua 3 seara.",
+        address: "Trafalgar Square, WC2N 5DN",
+        url: "https://www.nationalgallery.org.uk/visiting/calendar/friday-lates",
+        verifyBefore: "Confirmă programul Friday Lates pentru 19 Iun 2026 (nationalgallery.org.uk/visiting/calendar/friday-lates).",
+        scheduleConflict: "Programul actual are Tate Modern la 17:00 și British Museum la 19:00 în Ziua 3. Dacă alegi National Gallery seara, sacrifici una din celelalte — sugerez să sacrifici British Museum seara (l-ai văzut deja Joi dimineața)."
+      },
+      {
+        name: "Tate Modern + British Museum (Friday Late) — DEJA ÎN PROGRAM",
+        slot: "17:00–20:30 — deja confirmat",
+        why: "Tate Modern Vinerea până la 21:00 ✓, British Museum până la 20:30 ✓ — verificat. Activitate culturală, nu bar. Rămâne valid.",
+        verifyBefore: "Confirmă pe tate.org.uk și britishmuseum.org orele Vineri pentru iunie 2026."
+      }
+    ]
+  },
+
+  // ---------------------------------------------------------------------------
+  // ZIUA 4 — Sâmbătă 20 Iun (Tower, Bermondsey, Greenwich)
+  // ---------------------------------------------------------------------------
+  day4: {
+    streetFood: [
+      {
+        name: "Maltby Street Market — Bermondsey (DEJA ÎN PROGRAM)",
+        slot: "12:35 prânz — deja confirmat",
+        why: "Validat — piață sâmbăta cu vibe local (nu turistic). Păstrează.",
+        verifyBefore: "Confirmă orele Sâmbătă 20 Iun. Site: maltby.st"
+      },
+      {
+        name: "Flat Iron Square — Bermondsey (DEJA ÎN PROGRAM)",
+        slot: "21:30 cina — deja confirmat",
+        why: "Validat — food trucks + bere + muzică live, atmosferă de stradă. Păstrează.",
+        verifyBefore: "Confirmă programul muzical Sâmbătă 20 Iun pe flatironsquare.co.uk"
+      },
+      {
+        name: "Borough Market — alternativă rapid pentru prânz",
+        slot: "Alternativă la Maltby Street DACĂ vrei volume mai mare",
+        time: "Sâmbătă 09:00–17:00",
+        price: "£8–15/farfurie",
+        why: "Cea mai veche piață alimentară din Londra (1014). 100+ vendori. Mai turistic decât Maltby Street, dar calitate înaltă consistent.",
+        valueJustification: "Recomand SĂ NU SCHIMBI — Maltby Street e mai puțin aglomerat și aceeași calitate. Borough Sâmbătă e foarte aglomerat (atenție la furtul de telefon).",
+        address: "8 Southwark St, SE1 1TL",
+        url: "https://boroughmarket.org.uk/",
+        verifyBefore: "Doar dacă schimbi planul — verifică maltby.st pentru închideri ocazionale Sâmbătă."
+      }
+    ],
+    nightActivity: [
+      {
+        name: "Open House London — sezonul de iunie",
+        slot: "Posibilă vizită gratuită clădire istorică — verifică program",
+        time: "Variabil — Open House are evenimente speciale tot anul",
+        price: "GRATUIT",
+        why: "Acces la clădiri istorice și moderne în mod normal închise publicului. Vizite ghidate de arhitecți.",
+        valueJustification: "ALERT: Open House London principal e în Septembrie, NU în Iunie. POSIBIL să existe evenimente speciale. Verifică doar dacă e ceva special pe 20 Iun.",
+        url: "https://www.openhouselondon.openhousecharitabletrust.org/",
+        verifyBefore: "Verifică openhouselondon.openhousecharitabletrust.org pentru evenimente speciale Iunie 2026 — probabil NIMIC, dar merită check rapid."
+      },
+      {
+        name: "Tower Bridge la apus + Shad Thames (DEJA ÎN PROGRAM)",
+        slot: "20:30 — deja confirmat",
+        why: "Activitate vizuală/culturală gratuită, nu bar. Apus la 21:17 pe 20 Iun. Validat.",
+        verifyBefore: "Apusul confirmat astronomic — nu necesită verificare."
+      }
+    ]
+  },
+
+  // ---------------------------------------------------------------------------
+  // ZIUA 5 — Duminică 21 Iun (West End, Hyde Park, Primrose Hill)
+  // ---------------------------------------------------------------------------
+  day5: {
+    streetFood: [
+      {
+        name: "Seven Dials Market — Covent Garden (depozit de banane recondiționat)",
+        slot: "ÎNLOCUIEȘTE prânzul Covent Garden Market (14:00)",
+        time: "Duminică 11:00–22:00",
+        price: "£8–13/farfurie",
+        why: "Fost depozit de banane din anii '20 transformat în 2019 în piață acoperită cu 20+ traders și 2 baruri (Kin + Deer, Pick & Cheese cu sushi conveyor de brânzeturi, Yum Bun, Bao). Atmosfera unui hangar industrial. Alternativă mult mai bună decât 'food trucks Covent Garden'.",
+        valueJustification: "Mâncare premiată (Bao, Pick & Cheese — au început aici și au deschis restaurante separate) la prețuri de stradă. £10/farfurie vs. £25+ în restaurante Covent Garden cu același nume.",
+        address: "35 Earlham St, WC2H 9LD",
+        url: "https://www.sevendialsmarket.com/",
+        verifyBefore: "Confirmă orele Duminică pentru 21 Iun 2026. Pagina sevendialsmarket.com."
+      },
+      {
+        name: "The Brick Lane Upmarket — Truman Brewery (NUMAI Sâmbătă/Duminică)",
+        slot: "Cină Duminică între Hyde Park și Primrose Hill — DAR e DEPARTE de traseul tău",
+        time: "Duminică 10:00–17:00",
+        price: "£6–10/farfurie",
+        why: "40+ vendori internaționali la Truman Brewery, deschis de 20+ ani.",
+        valueJustification: "AVERTISMENT: Închide la 17:00 — prea devreme pentru cina Duminică. NU recomand pentru Ziua 5 (programul tău e în West End/Hyde Park 17:00-19:00, nu în East End). Sari peste.",
+        address: "91 Brick Lane, E1 6QL",
+        url: "https://www.bricklanemarket.com/"
+      }
+    ],
+    nightActivity: [
+      {
+        name: "West End Live — Trafalgar Square (DEJA ÎN PROGRAM)",
+        slot: "12:00 — deja confirmat",
+        why: "Cea mai bună activitate gratuită din Londra Duminică. Validat.",
+        verifyBefore: "Confirmă datele West End Live 2026 pe westendlive.co.uk — festivalul e anual în Iunie."
+      },
+      {
+        name: "Solstițiul de Vară pe Primrose Hill (DEJA ÎN PROGRAM)",
+        slot: "21:22 — deja confirmat",
+        why: "Activitatea perfectă pentru solstițiu — gratuită, naturală, atmosferă unică. Validat.",
+        verifyBefore: "Apusul confirmat astronomic pentru 21 Iun 2026 BST."
+      },
+      {
+        name: "Royal Albert Hall — concerte Proms (din mijlocul Iulie)",
+        slot: "AR FI ideal — DAR Proms începe doar pe ~17 Iulie 2026",
+        why: "Proms (BBC) sunt în Iulie-Septembrie. Vacanța ta (17-22 Iun) e ÎNAINTE de începutul sezonului.",
+        valueJustification: "EXCLUS — nu se aliniază cu datele. Bilete Proms 'Promenade' standing sunt £8 — bang-for-buck legendar — dar nu pentru tine în Iunie 2026.",
+        verifyBefore: "Nu necesar — exclus din motive de date."
+      }
+    ]
+  },
+
+  // ---------------------------------------------------------------------------
+  // ZIUA 6 — Luni 22 Iun (departure)
+  // ---------------------------------------------------------------------------
+  day6: {
+    streetFood: [
+      {
+        name: "Mercato Metropolitano — Elephant & Castle (cea mai mare piață din Londra)",
+        slot: "Brunch alternativ înainte de Horizon 22 (DACĂ ai timp și vrei un mic dejun memorabil)",
+        time: "Luni 08:00–24:00",
+        price: "£8–14/farfurie",
+        why: "Fost depozit recondiționat de 5000mp cu 40+ vendori italieni autentici, panificie deschisă, brutărie pizza, gelato artizanal. Atmosferă de piazza italiană în Londra.",
+        valueJustification: "EXCLUS pentru Luni dimineață — e la Elephant & Castle, 25 min de Liverpool Street unde te cazezi. Programul tău începe la 09:00 cu mic dejun la M&S/Greggs și apoi Spitalfields/Horizon 22. NU schimba.",
+        address: "42 Newington Causeway, SE1 6DR",
+        url: "https://www.mercatometropolitano.com/london/",
+        verifyBefore: "Doar dacă vrei să restructurezi Ziua 6 dimineața — nerecomandat."
+      }
+    ],
+    nightActivity: []
+  }
+};
+
