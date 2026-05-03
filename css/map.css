@@ -1,0 +1,46 @@
+/* =============================================================================
+ * map.css — Map tab + legend
+ * ========================================================================== */
+
+.map-container {
+  flex: 1;
+  position: relative;
+  min-height: 0;
+}
+
+.map-container__canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.legend {
+  display: flex;
+  gap: 12px;
+  padding: 8px 14px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  background: white;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.legend::-webkit-scrollbar { display: none; }
+
+.legend__item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.2px;
+}
+
+.legend__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px white, 0 0 0 3px rgba(15,23,42,0.06);
+}

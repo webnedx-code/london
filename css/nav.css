@@ -1,0 +1,51 @@
+/* =============================================================================
+ * nav.css — Bottom tab bar
+ * ========================================================================== */
+
+.bottom-nav {
+  display: flex;
+  background: white;
+  border-top: 1px solid var(--border);
+  height: var(--tab-h);
+  flex-shrink: 0;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.nav-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  border: none;
+  background: none;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--muted-2);
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: color 0.2s;
+}
+
+.nav-tab.is-active {
+  color: var(--red);
+}
+
+.nav-tab__icon {
+  width: 46px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  transition: background 0.2s ease;
+}
+
+.nav-tab__icon i {
+  font-size: 22px;
+}
+
+.nav-tab.is-active .nav-tab__icon {
+  background: var(--red-12);
+}

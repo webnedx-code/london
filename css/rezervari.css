@@ -1,0 +1,162 @@
+/* =============================================================================
+ * rezervari.css — Bookings tab
+ * ========================================================================== */
+
+.rez-section {
+  padding: 14px 14px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.rez-heading {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: var(--muted);
+  padding: 10px 2px 4px;
+}
+
+.rez-card {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: var(--shadow-1);
+  border-left: 4px solid;
+  transition: opacity 0.2s ease;
+}
+
+.rez-card[data-urgency="urgent"] { border-color: var(--urgent); }
+.rez-card[data-urgency="soon"]   { border-color: var(--soon); }
+.rez-card[data-urgency="ok"]     { border-color: var(--ok); }
+
+.rez-card.is-done { opacity: 0.55; }
+
+.rez-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 11px 4px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  letter-spacing: 0.2px;
+}
+
+.rez-card__badge i { font-size: 14px; }
+
+.rez-card[data-urgency="urgent"] .rez-card__badge { background: #FEF2F2; color: var(--urgent); }
+.rez-card[data-urgency="urgent"] .rez-card__badge i { --ph-color: var(--urgent); --ph-color-secondary: rgba(220,38,38,0.15); }
+.rez-card[data-urgency="soon"]   .rez-card__badge { background: #FFFBEB; color: var(--soon); }
+.rez-card[data-urgency="soon"]   .rez-card__badge i { --ph-color: var(--soon);   --ph-color-secondary: rgba(217,119,6,0.15); }
+.rez-card[data-urgency="ok"]     .rez-card__badge { background: #F0FDF4; color: var(--ok); }
+.rez-card[data-urgency="ok"]     .rez-card__badge i { --ph-color: var(--ok);     --ph-color-secondary: rgba(22,163,74,0.15); }
+
+.rez-card__name {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 4px;
+  letter-spacing: -0.3px;
+  text-wrap: pretty;
+}
+
+.rez-card__when {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.rez-card__when i { font-size: 14px; --ph-color: var(--muted); }
+
+.rez-card__note {
+  font-size: 13px;
+  line-height: 1.55;
+  margin-bottom: 6px;
+  color: #334155;
+}
+
+.rez-card__deadline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.rez-card__deadline i { font-size: 14px; --ph-color: var(--muted); }
+
+.rez-days-pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+  letter-spacing: 0.2px;
+}
+
+.rez-days-pill[data-urgency="urgent"] { background: #FEF2F2; color: var(--urgent); }
+.rez-days-pill[data-urgency="soon"]   { background: #FFFBEB; color: var(--soon); }
+.rez-days-pill[data-urgency="ok"]     { background: #F0FDF4; color: var(--ok); }
+
+.btn-book {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.btn-book i { font-size: 18px; --ph-color: white; --ph-color-secondary: rgba(255,255,255,0.25); }
+.btn-book:active { opacity: 0.9; }
+
+.rez-card[data-urgency="urgent"] .btn-book { background: var(--urgent); box-shadow: 0 3px 10px rgba(220,38,38,0.32); }
+.rez-card[data-urgency="soon"]   .btn-book { background: var(--soon);   box-shadow: 0 3px 10px rgba(217,119,6,0.32); }
+.rez-card[data-urgency="ok"]     .btn-book { background: var(--ok); }
+
+.btn-done-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 11px;
+  background: #F8FAFC;
+  color: var(--muted);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  font-family: inherit;
+  margin-top: 8px;
+}
+
+.btn-done-toggle i { font-size: 16px; --ph-color: var(--muted); }
+
+.btn-done-toggle.is-done {
+  background: #F0FDF4;
+  color: var(--ok);
+  border-color: #BBF7D0;
+}
+
+.btn-done-toggle.is-done i { --ph-color: var(--ok); --ph-color-secondary: rgba(22,163,74,0.2); }

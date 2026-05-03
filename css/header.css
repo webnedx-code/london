@@ -1,0 +1,58 @@
+/* =============================================================================
+ * header.css — Top header with title + countdown
+ * ========================================================================== */
+
+.header {
+  background: var(--red);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  padding-top: max(env(safe-area-inset-top, 0px), 12px);
+  flex-shrink: 0;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.18);
+}
+
+.header__title {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header__flag {
+  width: 26px;
+  height: 18px;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  display: block;
+}
+
+.header__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.header__countdown {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: -0.4px;
+  line-height: 1;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-variant-numeric: tabular-nums;
+}
+
+.header__dates {
+  font-size: 10px;
+  font-weight: 700;
+  opacity: 0.78;
+  letter-spacing: 0.4px;
+  text-align: right;
+}

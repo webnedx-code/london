@@ -1,0 +1,64 @@
+/* =============================================================================
+ * day-strip.css — Horizontal day chips
+ * ========================================================================== */
+
+.day-strip {
+  display: flex;
+  gap: 6px;
+  padding: 10px 14px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  background: white;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.day-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.day-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.18s ease;
+  font-family: inherit;
+}
+
+.day-chip__label {
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.1px;
+}
+
+.day-chip__sub {
+  font-size: 9px;
+  opacity: 0.6;
+  margin-top: 2px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.day-chip.is-active {
+  background: var(--red);
+  border-color: var(--red);
+  color: white;
+  box-shadow: 0 3px 10px rgba(200, 16, 46, 0.32);
+}
+
+.day-chip.is-today:not(.is-active) {
+  border-color: var(--red);
+}
+
+.day-chip.is-today:not(.is-active) .day-chip__label {
+  color: var(--red);
+}

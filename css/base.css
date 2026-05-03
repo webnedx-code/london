@@ -1,0 +1,60 @@
+/* =============================================================================
+ * base.css — Resets, body, app shell
+ * ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  background: var(--bg);
+  color: var(--text);
+  height: 100dvh;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
+
+.scrollable {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tab-content {
+  display: none;
+  flex: 1;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.tab-content.is-active {
+  display: flex;
+}
