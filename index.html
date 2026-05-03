@@ -42,11 +42,13 @@
       box-shadow: 0 1px 0 rgba(0,0,0,0.15);
     }
     #header h1 { font-size: 20px; font-weight: 800; letter-spacing: -0.5px; }
-    .header-dates {
-      font-size: 12px; font-weight: 600;
-      background: rgba(255,255,255,0.18); padding: 4px 10px;
-      border-radius: 20px; letter-spacing: 0.2px;
+    .header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; }
+    .header-countdown {
+      font-size: 20px; font-weight: 900; letter-spacing: -0.5px; line-height: 1;
+      background: rgba(255,255,255,0.18); padding: 5px 11px;
+      border-radius: 20px;
     }
+    .header-dates { font-size: 10px; font-weight: 600; opacity: 0.72; letter-spacing: 0.2px; text-align: right; }
 
     /* TABS */
     .tab-content { display: none; flex: 1; flex-direction: column; overflow: hidden; min-height: 0; }
@@ -172,7 +174,8 @@
       max-height: 90vh; display: flex; flex-direction: column;
     }
     #sheet.open { transform: translateY(0); }
-    .sheet-handle { width: 36px; height: 4px; background: #E2E8F0; border-radius: 2px; margin: 14px auto 0; flex-shrink: 0; }
+    .sheet-handle { width: 36px; height: 4px; background: #CBD5E1; border-radius: 2px; margin: 14px auto 4px; flex-shrink: 0; cursor: grab; }
+    #sheet:active .sheet-handle { cursor: grabbing; background: #94A3B8; }
     #sheet-body { overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 16px 18px 8px; flex: 1; min-height: 0; }
     #sheet-footer {
       padding: 12px 18px;
@@ -303,17 +306,85 @@
     .btn-done-toggle.done { background: #F0FDF4; color: var(--ok); border-color: #BBF7D0; }
     .btn-done-toggle.done i { --ph-color: var(--ok); --ph-color-secondary: rgba(22,163,74,0.2); }
     .rez-card.done { opacity: 0.6; }
+    .rez-days-pill {
+      display: inline-flex; align-items: center;
+      font-size: 10px; font-weight: 800; padding: 2px 8px;
+      border-radius: 20px; margin-left: 8px; white-space: nowrap;
+    }
+    .rez-days-pill.urgent { background: #FEF2F2; color: var(--urgent); }
+    .rez-days-pill.soon   { background: #FFFBEB; color: var(--soon); }
+    .rez-days-pill.ok     { background: #F0FDF4; color: var(--ok); }
 
     /* TODAY CHIP */
     .chip-today:not(.active) { border-color: var(--red); }
     .chip-today:not(.active) .chip-label { color: var(--red); }
+
+    /* TRAVEL CONNECTORS */
+    .travel-row {
+      display: flex; align-items: center; gap: 8px; padding: 0 20px;
+    }
+    .travel-line { flex: 1; border-top: 1.5px dashed #E2E8F0; }
+    .travel-pill {
+      display: flex; align-items: center; gap: 4px;
+      font-size: 10px; font-weight: 800; color: #94A3B8;
+      background: white; border: 1.5px solid #E2E8F0;
+      border-radius: 20px; padding: 3px 10px 3px 7px;
+      white-space: nowrap;
+    }
+    .travel-pill i { font-size: 12px; --ph-color: #94A3B8; --ph-color-secondary: rgba(148,163,184,.3); }
+
+    /* STOP NUMBER BADGE — mirrors the map pin number for cross-tab orientation */
+    .stop-num {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: #F1F5F9; color: #64748B;
+      font-size: 11px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-variant-numeric: tabular-nums;
+    }
+    .stop-card.transport .stop-num { background: rgba(148,163,184,.15); color: #64748B; }
+    .stop-card.museum    .stop-num { background: rgba(59,130,246,.15);  color: #2563EB; }
+    .stop-card.church    .stop-num { background: rgba(139,92,246,.15);  color: #7C3AED; }
+    .stop-card.market    .stop-num { background: rgba(249,115,22,.15);  color: #EA580C; }
+    .stop-card.food      .stop-num { background: rgba(239,68,68,.15);   color: #DC2626; }
+    .stop-card.park      .stop-num { background: rgba(34,197,94,.15);   color: #16A34A; }
+    .stop-card.viewpoint .stop-num { background: rgba(234,179,8,.15);   color: #CA8A04; }
+    .stop-card.attraction .stop-num { background: rgba(200,16,46,.12);  color: var(--red); }
+
+    /* WIKI LINK in sheet */
+    .sheet-wiki {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 12px; font-weight: 700; color: #475569;
+      text-decoration: none; padding: 6px 10px;
+      background: #F1F5F9; border-radius: 20px;
+      margin-bottom: 12px;
+    }
+    .sheet-wiki i { font-size: 14px; --ph-color: #475569; --ph-color-secondary: rgba(71,85,105,.2); }
+    .sheet-wiki:active { opacity: 0.7; }
+
+    /* GUIDE SECTION IN SHEET */
+    .sheet-guide-label {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 10px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 1px; color: #0F766E; margin-bottom: 8px; margin-top: 10px;
+    }
+    .sheet-guide-label i { font-size: 13px; --ph-color: #0F766E; --ph-color-secondary: rgba(15,118,110,.25); }
+    .sheet-guide-item {
+      display: flex; align-items: flex-start; gap: 9px;
+      font-size: 13px; line-height: 1.5; color: #134E4A;
+      background: #F0FDFA; border-radius: 10px;
+      border: 1px solid #CCFBF1; padding: 9px 11px; margin-bottom: 6px;
+    }
+    .sheet-guide-item i { font-size: 15px; flex-shrink: 0; margin-top: 1px; --ph-color: #0D9488; --ph-color-secondary: rgba(13,148,136,.2); }
   </style>
 </head>
 <body>
 <div id="app">
   <div id="header">
     <h1><img src="https://flagcdn.com/gb.svg" width="26" height="18" alt="UK" style="vertical-align:middle;border-radius:3px;margin-right:8px;box-shadow:0 1px 4px rgba(0,0,0,0.3)"> London 2026</h1>
-    <span class="header-dates">17 &ndash; 22 Iunie</span>
+    <div class="header-right">
+      <span class="header-countdown" id="header-countdown">--</span>
+      <span class="header-dates">17–22 IUNIE 2026</span>
+    </div>
   </div>
   <div id="tab-program" class="tab-content active">
     <div class="day-strip" id="prog-strip"></div>
@@ -362,7 +433,7 @@ const DAYS = [
       {time:"~09:05", name:"Liverpool Street — depozitare bagaje", lat:51.5178, lng:-0.0823, type:"transport", wiki:"London Liverpool Street station",
         tip:"Left luggage disponibil în gară, ~£12/bag/zi. Verifică deschiderea la sosire."},
       {time:"09:30", name:"Old Spitalfields Market", lat:51.5192, lng:-0.0726, type:"market", wiki:"Old Spitalfields Market",
-        tip:"Piața deschide la 10:00. Promenează zona exterioară și artizanii locali înainte de deschidere.",
+        tip:"Piața deschide la 10:00 (nu 09:30!). Folosește intervalul pentru mic dejun pe Brushfield Street — cafenele deschise devreme chiar lângă piață. Promenează zona exterioară și artizanii locali înainte de deschidere.",
         desc:"Piața Spitalfields funcționează pe același loc din 1638, când Regele Carol I a acordat permisul de comercializare. Zona a primit valuri succesive de imigranți — hughenoți, evrei, bangladezieni — fiecare lăsând urme vizibile în arhitectură, gastronomie și artă."},
       {time:"10:00", name:"Shoreditch Street Art Walk — Redchurch St & Brick Lane", lat:51.5228, lng:-0.0717, type:"attraction", wiki:"Brick Lane",
         tip:"Cele mai bune murale sunt pe Hanbury St, Redchurch St și Sclater St. Fă-ți propriul tur — nu ai nevoie de ghid.",
@@ -370,8 +441,8 @@ const DAYS = [
       {time:"11:30", name:"Beigel Bake — 159 Brick Lane (prânz iconic)", lat:51.5226, lng:-0.0718, type:"food", wiki:"Beigel Bake",
         tip:"Coada merge repede. Covrigi cu somon afumat sau cu carne sărată (~£3-4). Plătești cu card sau numerar.",
         desc:"Deschis în 1855 de imigranți evrei din Europa de Est, Beigel Bake este cel mai vechi magazin de covrigi din Londra. Funcționează 24/7, 365 de zile pe an, de 170 de ani. Prețurile n-au urmat inflația — un covrig cu somon afumat costă în continuare sub £5."},
-      {time:"12:10", name:"Museum of the Home — Hoxton (gratuit)", lat:51.5278, lng:-0.0793, type:"museum", wiki:"Museum of the Home", tags:["free"],
-        tip:"Muzeu subestimat despre istoria casei britanice. Gratuit. Plan 1 oră. Grădina interioară este o bijuterie ascunsă."},
+      {time:"12:10", name:"Museum of the Home — Hoxton (gratuit)", lat:51.5278, lng:-0.0793, type:"museum", wiki:"Museum of the Home", tags:["free"], travelMode:"bus",
+        tip:"Muzeu subestimat despre istoria casei britanice. Gratuit. Plan 1 oră. Grădina interioară este o bijuterie ascunsă. IMPORTANT: La 13:20 fix ia autobuzul 35 sau 48 spre sud (stație: Hoxton Street) — mersul pe jos până la St Dunstan-in-the-East este 2.5km și nu e acoperit în program."},
       {time:"13:20", name:"St Dunstan-in-the-East — grădina ruinată", lat:51.5094, lng:-0.0834, type:"church", wiki:"St Dunstan-in-the-East", tags:["free"],
         tip:"Hidden gem absolut. Ruinele bisericii secolului XVII transformate în grădină publică. Puțini turiști știu de el. Planifică 25-30 min.",
         desc:"Originară din anul 1100, biserica St Dunstan a supraviețuit Marii Ciume din 1665, dar a fost distrusă de Marele Incendiu din 1666. Reconstruită de Christopher Wren, a fost bombardată din nou în Blitz-ul din 1941. Ruinele au rămas intacte și au fost transformate în grădină publică în 1967 — unul din cele mai surreale și liniștite locuri din City."},
@@ -390,6 +461,9 @@ const DAYS = [
         tip:"Vino la 16:30 pentru loc bun. Securitate + verificare bagaje durează 10 min. Încearcă să te asezi în naos aproape de cor."},
       {time:"17:00", name:"St Paul's Cathedral — Evensong FREE (45 min)", lat:51.5138, lng:-0.0984, type:"church", wiki:"St Paul's Cathedral", tags:["free"]},
       {time:"18:10", name:"Liverpool Street — check-in hotel", lat:51.5178, lng:-0.0823, type:"transport", wiki:"London Liverpool Street station"},
+      {time:"19:30", name:"Brick Lane noaptea — curry & street art", lat:51.5226, lng:-0.0718, type:"food", wiki:"Brick Lane",
+        tip:"Brick Lane la 19:30 arată complet diferit față de dimineață. Restaurantul Aladin (132 Brick Lane) este alegerea localnicilor — nu restaurantele cu touts pe ușă. Muralele arată spectaculos în lumina stradală, mai ales pe Sclater Street (la est față de Brick Lane). Beigel Bake (nr. 159) deschis 24/7 — prinde un covrig de încheiere. Seara ideală după ziua lungă de sosire: fără metrou, 15 min mers de la hotel.",
+        desc:"Brick Lane seara devine epicentrul cultural al East End-ului londonez — restaurante bangladeze cu arome de cardamom și curry în aer, galerii independente deschise târziu, artă stradală luminată de becuri galbene. Tradiția restaurantelor curry pe Brick Lane datează din anii '70, când imigranții bangladezi au deschis primele restaurante 'baltis'. Astăzi strada găzduiește peste 40 de restaurante curry."},
     ]
   },
   {
@@ -398,7 +472,8 @@ const DAYS = [
       {time:"09:45", name:"Metrou Liverpool Street spre Holborn", lat:51.5174, lng:-0.1200, type:"transport", wiki:"Holborn tube station"},
       {time:"10:00", name:"British Museum — deschidere (evită aglomerația)", lat:51.5194, lng:-0.1270, type:"museum", wiki:"British Museum", tags:["free"],
         tip:"CRITIC: Sosești la deschidere (10:00) — aglomerația maximă e 10:30-12:30. Du-te DIRECT la etaj (Mesopotamia, Asia, Americas) — mai puțini oameni. Piatra Rosetta și mumiificările sunt la parter — lasă pe urmă.",
-        desc:"Fondat în 1753, British Museum a fost primul muzeu public național din lume. Colecția de 8 milioane de obiecte acoperă 2 milioane de ani de istorie umană. Controversele legate de Marmurele Partenonului — aduse din Atena de Lord Elgin în 1801 — continuă să agite relațiile diplomatice cu Grecia până în prezent."},
+        desc:"Fondat în 1753, British Museum a fost primul muzeu public național din lume. Colecția de 8 milioane de obiecte acoperă 2 milioane de ani de istorie umană. Controversele legate de Marmurele Partenonului — aduse din Atena de Lord Elgin în 1801 — continuă să agite relațiile diplomatice cu Grecia până în prezent.",
+        guide:["Etaj 1 întâi: Room 56 (Mesopotamia) și Room 11–23 (Grecia Antică) — aproape goale la deschidere","Piatra Rosetta: Room 4, parter — lasă pentru după ce ai explorat etajul, să eviți aglomerația","Momiile Egipt: Room 62–63, etaj 3 — printre cele mai impresionante exponate","Lewis Chessmen: Room 40 (etaj 3) — piese de șah medieval din sec. XII, bijuterie ascunsă","Evită Great Court în primele 2 ore — e aglomerată. Intră direct pe scări spre etaje"]},
       {time:"12:30", name:"Prânz lângă Holborn / Covent Garden", lat:51.5194, lng:-0.1270, type:"food", wiki:"Covent Garden",
         tip:"Lamb's Conduit Street (10 min mers) — pub istoric cu plăcinte excelente. Sau Dishoom Covent Garden — Indian contemporan, reservă în avans."},
       {time:"13:30", name:"Metrou Holborn spre Bank / City", lat:51.5133, lng:-0.0886, type:"transport", wiki:"Bank station, London"},
@@ -407,21 +482,26 @@ const DAYS = [
         desc:"Construită de Christopher Wren în 1679, St Stephen Walbrook este considerată capodopera sa supremă și experimentul-pilot pentru domul Catedralei St Paul's. Altarul de travertin din centrul boltei este opera sculptorului Henry Moore, adăugat controversat în 1987 — unii l-au numit 'camembert pe roți'."},
       {time:"14:15", name:"Sky Garden — 20 Fenchurch Street (Walkie-Talkie)", lat:51.5109, lng:-0.0832, type:"viewpoint", wiki:"Sky Garden, London", tags:["booking"],
         bookingId:"sky-garden",
-        tip:"REZERVARE OBLIGATORIE — locurile se dau în fiecare Luni dimineața la 10:00 pentru 3 săptămâni înainte. Intră gratuit dar aduce act de identitate.",
-        desc:"Clădirea 20 Fenchurch Street, poreclită 'Walkie-Talkie', a câștigat în 2015 premiul Carbuncle Cup pentru 'cea mai urâtă clădire nouă din Marea Britanie'. În vara lui 2013, fațada sa concavă a concentrat razele solare ca o lupă și a topit caroseria unui Jaguar parcat pe stradă. Grădina de la etajul 35 este cel mai mare spațiu verde interior din Londra."},
+        tip:"REZERVARE OBLIGATORIE — locurile se dau în fiecare Luni dimineața la 10:00 pentru 3 săptămâni înainte. Rezervă slotul de 14:00 și sosește la 13:55 — o sosire la 14:15 riscă să rateze fereastra de check-in. Aduce act de identitate.",
+        desc:"Clădirea 20 Fenchurch Street, poreclită 'Walkie-Talkie', a câștigat în 2015 premiul Carbuncle Cup pentru 'cea mai urâtă clădire nouă din Marea Britanie'. În vara lui 2013, fațada sa concavă a concentrat razele solare ca o lupă și a topit caroseria unui Jaguar parcat pe stradă. Grădina de la etajul 35 este cel mai mare spațiu verde interior din Londra.",
+        guide:["Check-in parter: act de identitate obligatoriu, securitate ~5 min — sosește la 13:55","Terasa exterioară (Nivel 35): ieși imediat la dreapta din lift — vedere spre Shard și Tamisa","Explorează ambele niveluri: Nivel 35 (grădina principală) și Nivel 37 (terasa superioară)","Cel mai bun unghi foto: terasa nordică spre Tower Bridge și City","Bar: nu e obligatoriu să consumi, dar o băutură mică (~£6) merită priveliștea de 1h"]},
       {time:"15:20", name:"Leadenhall Market — piața victoriană acoperită", lat:51.5131, lng:-0.0832, type:"market", wiki:"Leadenhall Market",
         tip:"Arhitectură victoriană spectaculoasă. A servit ca decor pentru Diagon Alley în Harry Potter. Vizitează podul de fier turnat. 20-25 min.",
         desc:"Pe locul actualei piețe se afla Forumul Roman din Londinium — capitala romană a Britaniei din sec. I d.Hr. Structura victoriană din fier turnat și sticlă colorată datează din 1881. Apare ca Diagon Alley în filmele Harry Potter și ca Knockturn Alley în 'Camera Secretelor'."},
       {time:"15:50", name:"St Mary Woolnoth — Hawksmoor la Bank Station", lat:51.5129, lng:-0.0882, type:"church", wiki:"St Mary Woolnoth", tags:["free"],
-        tip:"Cea mai stranie și dramatică dintre bisericile lui Hawksmoor. Interior baroc ca o cutie de bijuterii. Intrare via Bank Station. 10-15 min."},
+        tip:"Cea mai stranie și dramatică dintre bisericile lui Hawksmoor. Interior baroc ca o cutie de bijuterii. Intrare via Bank Station. 10-15 min. CRITIC: Pleacă la 16:08 fix — fereastra pentru Bank → Westminster (coadă Evensong 16:30) este de exact 22 min."},
       {time:"16:10", name:"Metrou Bank spre Westminster (15 min)", lat:51.4994, lng:-0.1273, type:"transport", wiki:"Westminster tube station",
         tip:"Linia District sau Circle până la Westminster. Scoate-te pe Westminster Bridge Road pentru intrare la Westminster Abbey."},
       {time:"16:30", name:"Westminster Abbey — coadă pentru Evensong", lat:51.4994, lng:-0.1273, type:"church", wiki:"Westminster Abbey", tags:["free"],
         tip:"TREBUIE să fii la coadă la 16:30 cel târziu. Intrare via Great West Door. First-come, first-served. Fotografierea NU este permisă în interior.",
         desc:"Westminster Abbey este cel mai dens loc de înmormântare din Anglia — 3.300 de persoane sunt înhumate sau comemorate aici. Toți monarhii englezi din 1066, Isaac Newton, Charles Darwin și Geoffrey Chaucer sunt înmormântați în interiorul său. Clădirea gotică actuală datează din 1245, construită de Henric III."},
-      {time:"17:00", name:"Westminster Abbey — Evensong FREE (45 min)", lat:51.4994, lng:-0.1273, type:"church", wiki:"Westminster Abbey", tags:["free"]},
+      {time:"17:00", name:"Westminster Abbey — Evensong FREE (45 min)", lat:51.4994, lng:-0.1273, type:"church", wiki:"Westminster Abbey", tags:["free"],
+        guide:["Intri prin Great West Door (nu intrarea pentru turiști — coadă diferită)","Ocupă locuri în Nave (naos) — mai aproape de cor, sunetul e incomparabil mai bun","Serviciul alternează latină și engleză veche — atmosfera contează mai mult decât textul","Fotografierea este STRICT INTERZISĂ — securitatea verifică activ","Rămâi 5 min după final: corul iese formal prin naos, e parte din spectacol"]},
       {time:"18:00", name:"Traversare Millennium Bridge + South Bank", lat:51.5098, lng:-0.0984, type:"attraction", wiki:"Millennium Bridge, London", tags:["free"],
-        tip:"Podul pietonal cu vedere spre Catedrala St Paul's. 15-20 min de plimbare pe malul de sud spre Tate Modern. Seară perfectă."},
+        tip:"Podul pietonal cu vedere spre Catedrala St Paul's. 15-20 min de plimbare pe malul de sud spre Tate Modern. Continuă spre vest pe South Bank până la Embankment Pier pentru croazieră."},
+      {time:"19:30", name:"City Cruises — Croazieră de seară pe Tamisa", lat:51.5068, lng:-0.1224, type:"attraction", wiki:"River Thames",
+        tip:"Plecare de la Embankment Pier (Victoria Embankment, lângă Hungerford Bridge) — 25 min mers pe jos de la Tate Modern de-a lungul South Bank. Fără rezervare, plătești la îmbarcare (~£22/persoană). Croazieră ~1.5 ore: Tower Bridge iluminat auriu, Shard, Parlamentul, reflecțiile pe apă. Notă: Bateaux London (operatorul original planificat) și-a suspendat activitatea în 2025.",
+        desc:"City Cruises operează pe Tamisa din 1987 și este cel mai mare operator de croaziere fluviale din Londra. Vasele circulă între Westminster, Embankment, Bankside și Tower Pier. Vederea de la nivelul apei spre Tower Bridge iluminat noaptea rămâne una dintre cele mai spectaculoase priveliști din Londra, imposibil de replicat de la mal."},
     ]
   },
   {
@@ -430,13 +510,14 @@ const DAYS = [
       {time:"08:00", name:"Metrou spre Green Park (plecare devreme)", lat:51.5067, lng:-0.1428, type:"transport", wiki:"Green Park tube station",
         tip:"Pleacă devreme — ai nevoie de mic dejun liniștit înainte de ceremonie. Linia District de la Liverpool Street."},
       {time:"08:30", name:"Mic dejun lângă Green Park", lat:51.5067, lng:-0.1428, type:"food", wiki:"Green Park, London",
-        tip:"Fortnum & Mason (clasic, mai scump) sau Pret A Manger. Hidratează-te — vei sta în picioare 45+ min la ceremonie."},
+        tip:"Fortnum & Mason (clasic, mai scump) sau Pret A Manger. Hidratează-te — vei sta în picioare 45+ min la ceremonie. Ai 105 minute până la Victoria Memorial — după micul dejun, plimbă-te prin St James's Park (intri de pe The Mall): pelicanii sunt activi dimineața, lacul e liniștit, și ajungi la Memorial în mod natural."},
       {time:"10:15", name:"Victoria Memorial — poziționare pentru Gardă", lat:51.5021, lng:-0.1408, type:"attraction", wiki:"Victoria Memorial, London",
         tip:"Cel mai bun loc: latura de sud-est a Victoria Memorial — mai puțini oameni, fotografii mai bune. Evită The Mall (blocat). Fii acolo la 10:30.",
         desc:"Palatul Buckingham a fost casa privată a Ducelui de Buckingham înainte de a fi cumpărat de Regele George III în 1761 ca reședință privată. A devenit reședința oficială a monarhiei britanice abia în 1837, când Regina Victoria s-a mutat acolo. Palatul are 775 de camere, 78 de băi și o grădină de 16 hectare în centrul Londrei."},
       {time:"11:00", name:"Schimbarea Gărzii — Buckingham Palace (ceremonie completă, Vineri)", lat:51.5014, lng:-0.1419, type:"attraction", wiki:"Buckingham Palace", tags:["free"],
         tip:"Ceremonie completă în fiecare VINERI la 11:00 (Sâmbătă e Captain's Inspection la 15:00 — mai scurtă). Durează ~45 min. Bandă militară inclusă.",
-        desc:"Tradiția Schimbării Gărzii datează din 1660, când Carol II a reinstautat monarhia britanică. Cele mai vechi regimente: Life Guards (1660) și Blues and Royals (1661). Aproximativ 200 de soldați, 3 ofițeri și o bandă militară participă la ceremonia completă. Căștile negre de păr de urs sunt fabricate din blana ursului negru canadian și costă £600 fiecare."},
+        desc:"Tradiția Schimbării Gărzii datează din 1660, când Carol II a reinstautat monarhia britanică. Cele mai vechi regimente: Life Guards (1660) și Blues and Royals (1661). Aproximativ 200 de soldați, 3 ofițeri și o bandă militară participă la ceremonia completă. Căștile negre de păr de urs sunt fabricate din blana ursului negru canadian și costă £600 fiecare.",
+        guide:["Stai la colțul de sud-est al Victoria Memorial — mai puțini oameni, fotografii mai bune decât pe The Mall","La 10:50 pornește muzica: primul marș anunță Garda Nouă venind dinspre Wellington Barracks","Ceremonia are 3 acte: Marș de sosire → Schimbul de santinele (la poartă) → Marș de retragere","Nu te mișca cu mulțimea spre poarta palatului — priveliștea de la Memorial e mai bună","Ultimele 10 min (Retreat) sunt cele mai spectaculoase — nu pleca devreme"]},
       {time:"11:55", name:"St James's Park — odihnă + picnic", lat:51.5025, lng:-0.1333, type:"park", wiki:"St James's Park", tags:["free"],
         tip:"Cel mai frumos parc royal din Londra. Lac cu pelicani. Cumpără merinde de la M&S Victoria (8 min mers) dacă nu ai deja. Stai lângă lac.",
         desc:"Transformat din mlaștină în 1532 de Henric VIII, St James's Park este cel mai vechi parc royal din Londra. Pelicanii trăiesc oficial în parc din 1664, când Ambasadorul Rusiei a dăruit primii exemplari Regelui Carol II — tradiția continuă neîntreruptă de 360 de ani."},
@@ -451,11 +532,13 @@ const DAYS = [
         tip:"CRITIC: Muzeul e deschis Miercuri–Duminică (Luni și Marți ÎNCHIS). Picture Room: prezentare de panouri la 11:00, 14:00 și 15:00. Vineri 19 Iunie ✓. Fii la coadă la 14:50 — spațiu mic, locuri limitate."},
       {time:"15:00", name:"Sir John Soane's Museum — Picture Room 3PM", lat:51.5170, lng:-0.1183, type:"museum", wiki:"Sir John Soane's Museum", tags:["free"],
         tip:"Una dintre cele mai fascinante case-muzeu din lume. Fondată de arhitectul regal John Soane. Plin de antichități, picturi, sarcofage. Plan 1.5 ore.",
-        desc:"Sir John Soane (1753-1837), arhitectul Băncii Angliei, și-a transformat propria casă în muzeu deschis publicului printr-un act al Parlamentului, cu condiția să rămână neschimbată pentru totdeauna. Colecția cuprinde 45.000 de obiecte, inclusiv sarcofagul alabastru al Faraonului Seti I, cumpărat pentru £2.000 în 1824 — Muzeul Britanic oferise £2.000 și a fost refuzat."},
+        desc:"Sir John Soane (1753-1837), arhitectul Băncii Angliei, și-a transformat propria casă în muzeu deschis publicului printr-un act al Parlamentului, cu condiția să rămână neschimbată pentru totdeauna. Colecția cuprinde 45.000 de obiecte, inclusiv sarcofagul alabastru al Faraonului Seti I, cumpărat pentru £2.000 în 1824 — Muzeul Britanic oferise £2.000 și a fost refuzat.",
+        guide:["Picture Room (15:00): 13 tablouri Hogarth — panourile se deschid în 3 straturi succesive, cel mai unic efect din orice muzeu londonez","Basement: sarcofagul faraonului Seti I din alabastru translucid — uriaș, iluminat de jos","Monument Court: privește de sus prin plafonul de sticlă spre sarcofag — perspectivă unică","Model Room (etaj 1): machete ale proiectelor lui Soane, inclusiv Banca Angliei","Library (parter): Canaletto, Turner, Piranesi — spațiu mic, cald, plin de detalii ascunse"]},
       {time:"16:40", name:"Metrou Holborn spre Southwark / Waterloo", lat:51.5076, lng:-0.0994, type:"transport", wiki:"Waterloo tube station"},
       {time:"17:00", name:"Tate Modern — seară de Vineri (deschis până la 21:00)", lat:51.5076, lng:-0.0994, type:"museum", wiki:"Tate Modern", tags:["free"],
         tip:"EXCLUSIV VINERI ȘI SÂMBĂTĂ: deschis până la 21:00. Terasă Nivel 10 (vedere panoramică, gratuită) + colecție permanentă. Mult mai liniștit seara.",
-        desc:"Tate Modern ocupă fosta Centrală Electrică Bankside, construită în 1947 și închisă în 1981. Reconvertită în muzeu de artă modernă în 2000 de arhitecții Herzog & de Meuron, este acum cel mai vizitat muzeu de artă modernă din lume — 5-6 milioane de vizitatori anual. Turbine Hall, fosta sală a turbinelor, este una din cele mai mari expoziții gratuite din lume."},
+        desc:"Tate Modern ocupă fosta Centrală Electrică Bankside, construită în 1947 și închisă în 1981. Reconvertită în muzeu de artă modernă în 2000 de arhitecții Herzog & de Meuron, este acum cel mai vizitat muzeu de artă modernă din lume — 5-6 milioane de vizitatori anual. Turbine Hall, fosta sală a turbinelor, este una din cele mai mari expoziții gratuite din lume.",
+        guide:["Turbine Hall (parter): instalația curentă — stai 10 min în centru și privește spre plafon, efectul e copleșitor","Nivelul 10 (terasa): NU apare pe butoanele liftului — urcă la 9 și ia scările până sus. Vedere spre St Paul's și Millennium Bridge","Colecție permanentă: Nivelurile 2–4, Blavatnik Building (blocul nou) — Picasso, Matisse, Rothko","The Tanks (subteran, intrare separată): video art și performance — gratuit, de obicei gol","Switch House (blocul nou din 2016): arhitectura brutalistă în cărămidă — merită 10 min explorare exterioară"]},
       {time:"19:00", name:"British Museum — vizită de seară (deschis până la 20:30, Vineri)", lat:51.5194, lng:-0.1270, type:"museum", wiki:"British Museum", tags:["free"],
         tip:"Opțional dacă mai ai energie. British Museum e deschis până la 20:30 vinerea. Mergi la galeriile de la etaj — goale seara."},
     ]
@@ -470,8 +553,9 @@ const DAYS = [
         tip:"CUMPĂRĂ BILETUL ONLINE în avans — mai ieftin și eviți coada la casierie. La intrare, securitate + verificare bilet = 10 min. Fii pregătit.",
         desc:"Construit de Wilhelm Cuceritorul în 1078 ca simbol al dominației normande, Tower of London a servit pe rând ca palat royal, temnița regală, tezaur al Coroanei, menajerie cu lei și elefanți, observator astronomic și monetărie. Anne Boleyn, Catherine Howard și Lady Jane Grey au fost decapitate în curtea interioară — ghidul Yeoman Warder îți arată exact locul."},
       {time:"09:10", name:"Bijuteriile Coroanei — PRIMA OPRIRE (fără negociere)", lat:51.5081, lng:-0.0759, type:"attraction", wiki:"Crown Jewels of the United Kingdom",
-        tip:"OBLIGATORIU: mergi DIRECT la Jewel House imediat după intrare. Dacă aștepți până la 10:30, coada e 45-60 min. La deschidere: 5-10 min. Benzile rulante nu se opresc — mișcă-te cu fluxul.",
-        desc:"Bijuteriile Coroanei includ Sceptrul Regal cu Cullinan I — cel mai mare diamant tăiat din lume (530 carate). Coroana Imperială de Stat conține 2.868 diamante, 17 safire, 11 smaralde și 269 perle. Toată colecția este evaluată la aproximativ £3-5 miliarde și nu este asigurată — nu există asigurare care să acopere o astfel de pierdere."},
+        tip:"OBLIGATORIU: mergi DIRECT la Jewel House imediat după intrare. Dacă aștepți până la 10:30, coada e 45-60 min. La deschidere în Iunie: 15-25 min (sezon de vârf — alocă 30-35 min total). Benzile rulante nu se opresc — mișcă-te cu fluxul.",
+        desc:"Bijuteriile Coroanei includ Sceptrul Regal cu Cullinan I — cel mai mare diamant tăiat din lume (530 carate). Coroana Imperială de Stat conține 2.868 diamante, 17 safire, 11 smaralde și 269 perle. Toată colecția este evaluată la aproximativ £3-5 miliarde și nu este asigurată — nu există asigurare care să acopere o astfel de pierdere.",
+        guide:["Treci de două ori pe banda rulantă: prima dată pentru imaginea de ansamblu, a doua pentru detalii pe fiecare piesă","Cullinan I (Sceptrul Regal): cel mai mare diamant tăiat din lume — 530 carate, cât un ou de porumbel","Coroana Imperială: 2.868 diamante. Safirul lui Eduard Mărturisitorul datează din sec. XI","Orb-ul Suveranului: crucea de deasupra simbolizează dominația creștinismului asupra lumii","La ieșire: vitrinele laterale cu coroane istorice sunt ignorate de toată lumea — stai 5 min extra"]},
       {time:"09:35", name:"White Tower — Turnul Norman (sec. XI)", lat:51.5081, lng:-0.0759, type:"museum", wiki:"White Tower, London",
         tip:"Cel mai vechi turn. Armuri medievale, colecție de arme. Priveliște excelentă de pe etajul superior. Plan 50-60 min."},
       {time:"10:40", name:"Bloody Tower & Traitors' Gate", lat:51.5081, lng:-0.0759, type:"attraction", wiki:"Bloody Tower",
@@ -487,17 +571,21 @@ const DAYS = [
         tip:"Stradă vibrantă cu galerii de artă independente, cafenele specialty coffee. White Cube este una dintre cele mai importante galerii contemporane din Londra. Intrare gratuită."},
       {time:"14:20", name:"Southwark Cathedral — Wren ascuns", lat:51.5056, lng:-0.0901, type:"church", wiki:"Southwark Cathedral", tags:["free"],
         tip:"Una dintre cele mai vechi catedrale gotice din Londra, frecvent trecută cu vederea. Shakespeare a fost botezat în parohia vecină. 15-20 min. Liniște deplină."},
-      {time:"14:50", name:"DLR Tower Gateway spre Greenwich (Cutty Sark)", lat:51.4775, lng:-0.0139, type:"transport", wiki:"Cutty Sark",
-        tip:"DLR fără șofer — stai în față pentru vederi. IMPORTANT: schimb la Shadwell (direcția Lewisham/Woolwich) → Cutty Sark. ~30 min total. Dacă iei direcția greșită, ajungi la Bank, nu Greenwich. Drumul trece spectaculos pe deasupra Canary Wharf."},
+      {time:"14:50", name:"Tren London Bridge → Greenwich (Southeastern, 8 min)", lat:51.5031, lng:-0.0839, type:"transport", wiki:"London Bridge station",
+        tip:"RUTA RAPIDĂ: Mergi pe jos de la Southwark Cathedral spre London Bridge Station (8 min, spre nord). Tren Southeastern spre Greenwich — numai 8 minute, ajungi la ~15:10. Economisești 20 min față de DLR via Tower Gateway. Pe peron: direcția Gravesend, Hayes sau Dartford — nu Cannon Street."},
       {time:"15:20", name:"National Maritime Museum + Queen's House (gratuit)", lat:51.4807, lng:-0.0058, type:"museum", wiki:"National Maritime Museum", tags:["free"],
         tip:"NU RATA Painted Hall (Old Royal Naval College, 5 min mers) — plafon baroc pictat 19 ani de Sir James Thornhill, GRATUIT. Bate Maritime Museum pentru vizitatori generali. Queen's House: Tulip Staircase magnifică. Maritime Museum: povești navale. Plan total: 60-75 min.",
-        desc:"Cel mai mare muzeu naval din lume adăpostește uniforma purtată de Amiralul Nelson la Bătălia de la Trafalgar (1805) — cu gaura glonțului care l-a ucis vizibilă pe umărul stâng. Colecția cuprinde 2 milioane de obiecte. Painted Hall din vecinătate a luat 19 ani de lucru lui Sir James Thornhill (1707-1726) și este supranumit 'Capella Sixtină britanică'."},
+        desc:"Cel mai mare muzeu naval din lume adăpostește uniforma purtată de Amiralul Nelson la Bătălia de la Trafalgar (1805) — cu gaura glonțului care l-a ucis vizibilă pe umărul stâng. Colecția cuprinde 2 milioane de obiecte. Painted Hall din vecinătate a luat 19 ani de lucru lui Sir James Thornhill (1707-1726) și este supranumit 'Capella Sixtină britanică'.",
+        guide:["ÎNTÂI Painted Hall (Old Royal Naval College, 5 min spre vest) — închide la 17:00, nu rata!","Painted Hall: privește plafonul din centrul sălii cu capul pe spate — 19 ani de pictură barocă","Maritime Museum: Nelson Gallery (parter) — uniforma lui Nelson cu gaura glonțului vizibilă pe umăr","Queen's House (lângă muzeu): Tulip Staircase — prima scară helicoidală din Marea Britanie (1635)","Apoi urcă 10 min la Observatorul Regal — panorama e mai valoroasă decât orice din muzeu"]},
       {time:"16:25", name:"Greenwich Park — priveliște de pe colină", lat:51.4773, lng:-0.0015, type:"viewpoint", wiki:"Greenwich Park",
         tip:"Urcă la Observatorul Regal (colină de 10 min). Linia meridianului zero e marcată pe jos. Panoramă 360° asupra Londrei și Tamisei. Fotografii spectaculoase.",
         desc:"Observatorul Regal a fost fondat în 1675 de Regele Carol II pentru rezolvarea problemei determinării longitudinii pe mare — o problemă care ucidea mii de marinari anual. Meridianul Zero de la Greenwich a fost adoptat ca referință globală în 1884, când 25 de țări au votat la Washington. Astăzi, linia zero este marcată cu un laser verde vizibil noaptea."},
       {time:"17:00", name:"DLR înapoi spre London Bridge / Tower Gateway", lat:51.5059, lng:-0.0877, type:"transport", wiki:"Tower Bridge"},
       {time:"17:30", name:"Summer by the River — The Scoop (evenimente gratuite)", lat:51.5059, lng:-0.0877, type:"attraction", wiki:"The Scoop, London", tags:["free"],
         tip:"Amfiteatru în aer liber lângă Tower Bridge. Verifică programul la visitlondon.com — concerte, cinema, teatru gratuite vara. Dacă nu-i nimic, plimbă-te pe Riverwalk."},
+      {time:"18:30", name:"Shad Thames la apus + Butler's Wharf", lat:51.5041, lng:-0.0769, type:"viewpoint", wiki:"Shad Thames",
+        tip:"Ai trecut prin Shad Thames la prânz — la 18:30 arată complet diferit. Pasarelele de fier între depozitele victoriene sunt luminate, Tower Bridge în fundal devine portocaliu la apus. Butlers Wharf Chop House are bar exterior fără rezervare — o băutură cu Tower Bridge în față este priveliștea cea mai cinematografică din Londra. 60-90 min. Intră mai adânc în Bermondsey pentru pub-uri locale (Woolpack pe Bermondsey Street).",
+        desc:"Shad Thames este una dintre puținele străzi victoriene din Londra care a supraviețuit intactă bombardamentelor din al Doilea Război Mondial și demolărilor postbelice. Depozitele de condimente și ceai din sec. XIX (Brooke Bond Tea, Branston Pickle) au fost reconvertite în locuințe de lux în anii '80, dar pasarelele aeriene de fier forjat dintre clădiri — originale, neschimbate — au rămas. La apus, lumina portocalie intră pe alei ca printr-un defileu medieval."},
     ]
   },
   {
@@ -511,7 +599,8 @@ const DAYS = [
       {time:"10:30", name:"Metrou spre Trafalgar Square / Charing Cross", lat:51.5080, lng:-0.1281, type:"transport", wiki:"Charing Cross tube station"},
       {time:"11:00", name:"National Gallery (gratuit) — Impressioniști & Turner", lat:51.5089, lng:-0.1283, type:"museum", wiki:"National Gallery, London", tags:["free"],
         tip:"Rezervă intrare online (gratuit dar evită coada). Focalizează pe: Sala 34 (Van Gogh, Seurat), Sala 41 (Monet), Sala 32 (Renoir), Sala 34 (Cézanne). Sălile cu Turner (etaj 2) sunt mai liniștite.",
-        desc:"Fondată în 1824 cu doar 38 de picturi cumpărate de guvernul britanic pentru £57.000, National Gallery adăpostește acum 2.300 de lucrări de la Giotto (sec. XIII) la Cézanne (sec. XX). Este una din puținele mari galerii din lume cu intrare complet gratuită — o decizie politică britanică din 1824 care a rezistat 200 de ani."},
+        desc:"Fondată în 1824 cu doar 38 de picturi cumpărate de guvernul britanic pentru £57.000, National Gallery adăpostește acum 2.300 de lucrări de la Giotto (sec. XIII) la Cézanne (sec. XX). Este una din puținele mari galerii din lume cu intrare complet gratuită — o decizie politică britanică din 1824 care a rezistat 200 de ani.",
+        guide:["Room 8: Leonardo da Vinci — Virgin of the Rocks (ORIGINAL), singurul din Regatul Unit","Room 34: Van Gogh (Floarea Soarelui), Seurat (Bathers at Asnières) — punctul de start recomandat","Room 41: Monet — 5 tablouri într-un singur spațiu, inclusiv Gare Saint-Lazare","Room 30: Velázquez — Vénus la oglindă, singura nudă a sa existentă în lume","Room 32: Renoir — La Loge, Les Parapluies — luminos, accesibil, aproape mereu liber"]},
       {time:"12:00", name:"WEST END LIVE — Trafalgar Square (gratuit, 12:00–17:00)", lat:51.5080, lng:-0.1281, type:"attraction", wiki:"Trafalgar Square", tags:["free"],
         tip:"Festival anual cu spectacole din musicaluri West End — gratuit. Duminică 21 Iunie: 12:00–17:00 (nu 21:00!). Stai pe treptele National Gallery sau adu o pătură. Cel mai bun loc gratuit din Londra pentru musicaluri."},
       {time:"14:00", name:"Prânz — Covent Garden Market", lat:51.5121, lng:-0.1237, type:"food", wiki:"Covent Garden",
@@ -519,7 +608,8 @@ const DAYS = [
       {time:"15:00", name:"Metrou spre South Kensington (Piccadilly Line)", lat:51.4942, lng:-0.1741, type:"transport", wiki:"South Kensington tube station"},
       {time:"15:30", name:"V&A Museum — Victoria and Albert (gratuit)", lat:51.4966, lng:-0.1722, type:"museum", wiki:"Victoria and Albert Museum building", tags:["free"],
         tip:"Cel mai mare muzeu de design și arte decorative din lume. Focalizează: Fashion (Level 3), Jewelry Gallery, Cast Courts (replici la scară a marilor sculpturi). Impresionant și relativ liniștit după-amiaza.",
-        desc:"Victoria and Albert Museum, deschis în 1852, a fost primul muzeu din lume creat explicit pentru educarea designerilor industriali. Adăpostește o replică la scară reală a lui David de Michelangelo (cu un fig leaf adăugat la cererea Reginei Victoria), prima pereche de blugi Levi's, și costumul Jagged Edge al lui David Bowie."},
+        desc:"Victoria and Albert Museum, deschis în 1852, a fost primul muzeu din lume creat explicit pentru educarea designerilor industriali. Adăpostește o replică la scară reală a lui David de Michelangelo (cu un fig leaf adăugat la cererea Reginei Victoria), prima pereche de blugi Levi's, și costumul Jagged Edge al lui David Bowie.",
+        guide:["Cast Courts (Room 46A/B): replici la scară a lui David și Coloanei lui Traian — copleșitor ca dimensiune","Fashion Gallery (Level 3): 4 secole de modă, de la corset elizabetan la Alexander McQueen","Jewellery Gallery (Level 3): bijuterii europene din Evul Mediu — slab iluminate, atmosferă de tezaur","Raphael Cartoons (Room 48A): 7 tablouri uriașe originale ale lui Rafael — gratuite și aproape mereu goale","Islamic Art (Level 1): Ardabil Carpet (1539) — cel mai mare covor persan existent, 10.5m × 5.3m"]},
       {time:"17:00", name:"Hyde Park & Kensington Gardens — plimbare liberă", lat:51.5073, lng:-0.1657, type:"park", wiki:"Hyde Park, London", tags:["free"],
         tip:"Cel mai mare parc central al Londrei. Intrarea din South Kensington duce direct spre Serpentine Lake. Relaxează-te înainte de Serpentine Pavilion."},
       {time:"17:30", name:"Diana Memorial Fountain", lat:51.5038, lng:-0.1649, type:"attraction", wiki:"Diana, Princess of Wales Memorial Fountain",
@@ -543,11 +633,12 @@ const DAYS = [
         tip:"Vizita de adio. Luni dimineața e liniștit — poți discuta cu artizanii. Ultima șansă pentru suveniruri autentice."},
       {time:"10:30", name:"Mers spre Horizon 22 (10 min de la Liverpool Street)", lat:51.5148, lng:-0.0808, type:"transport", wiki:"22 Bishopsgate"},
       {time:"10:45", name:"Horizon 22 — coadă pentru slot de 11:00", lat:51.5148, lng:-0.0808, type:"viewpoint", wiki:"Horizon 22",
-        tip:"Aduce act de identitate — verificare obligatorie la intrare. Securitate 5-10 min. Ajunge cu 15 min înainte de slot."},
+        tip:"REZERVARE ONLINE OBLIGATORIE — nu există walk-in. Rezervă slotul de 11:00 în avans pe horizon22.co.uk. Aduce act de identitate — verificare obligatorie la intrare. Securitate 5-10 min. Ajunge cu 15 min înainte de slot."},
       {time:"11:00", name:"Horizon 22 — etaj 58, cel mai înalt punct gratuit", lat:51.5148, lng:-0.0808, type:"viewpoint", wiki:"Horizon 22", tags:["booking"],
         bookingId:"horizon22",
         tip:"Cel mai înalt punct de vedere gratuit din Londra (230m). Vedere 360° — poți vedea până la 40 km în zi senină. Cafea disponibilă la etaj. Ultima amintire perfectă din Londra.",
-        desc:"La 230 de metri înălțime, 22 Bishopsgate este cea mai înaltă clădire din Londra cu acces gratuit. Construită în 2020 după ce precedentul proiect a fost oprit de criza financiară din 2008 (structura de oțel a stat abandonată 8 ani), adăpostește 12.000 de angajați și a costat £1 miliard. Galeria publică de la etajul 58 a fost deschisă în 2022."},
+        desc:"La 230 de metri înălțime, 22 Bishopsgate este cea mai înaltă clădire din Londra cu acces gratuit. Construită în 2020 după ce precedentul proiect a fost oprit de criza financiară din 2008 (structura de oțel a stat abandonată 8 ani), adăpostește 12.000 de angajați și a costat £1 miliard. Galeria publică de la etajul 58 a fost deschisă în 2022.",
+        guide:["Securitate la intrare: saci la scanner, curea și monede la tavă — alocă 8–10 min","Ieși din lift și virează STÂNGA pentru vederea spre City (Gherkin, Walkie-Talkie, Tower Bridge)","Fereastra spre nord: Primrose Hill, Alexandra Palace și Essex la 40km în zile senine","Cafenea la etaj: cafea £5 — merită să stai 20–30 min cu priveliștea ultimei zile","Cel mai bun moment: înainte de 12:00, înainte să vină coada de prânz a angajaților din clădire"]},
       {time:"12:05", name:"Mers înapoi spre Liverpool Street (10 min)", lat:51.5178, lng:-0.0823, type:"transport", wiki:"London Liverpool Street station"},
       {time:"12:20", name:"Tesco Bishopsgate — cumpărături pentru drum", lat:51.5178, lng:-0.0823, type:"food", wiki:"Bishopsgate"},
       {time:"12:55", name:"Peron Stansted Express — Liverpool Street", lat:51.5178, lng:-0.0823, type:"transport", wiki:"Stansted Express",
@@ -560,34 +651,70 @@ const DAYS = [
 
 const BOOKINGS = [
   {
-    id:"sky-garden", urgency:"urgent",
-    badge:"Rezervă ACUM — urgent",
+    id:"eta-uk",
+    deadlineIso:"2026-06-12",
+    badge:"Aplică cât mai curând",
+    name:"UK ETA — Autorizație Electronică de Călătorie",
+    when:"Înainte de zbor — 17 Iun · £10/persoană",
+    note:"Cetățenii români au nevoie de UK ETA (Electronic Travel Authorisation) pentru a intra în Marea Britanie. Fără ETA aprobat nu poți urca în avion. Costă £20/persoană (tarif actualizat Aprilie 2026), se aprobă în câteva ore dar poate dura până la 3 zile lucrătoare. Valabil 2 ani de la aprobare.",
+    deadline:"Cel târziu 12 Iunie (Joi) — 3 zile lucrătoare înainte de zbor",
+    url:"https://www.gov.uk/eta",
+    btn:"Aplică pentru UK ETA →"
+  },
+  {
+    id:"sky-garden",
+    deadlineIso:"2026-05-28",
+    badge:"Rezervă Luni 28 Mai la 10:00",
     name:"Sky Garden — 20 Fenchurch Street",
-    when:"Ziua 2 — Joi 18 Iun · 14:15",
-    note:"Intrare 100% gratuită dar locurile se rezervă în fiecare Luni la 10:00 pentru 3 săptămâni înainte. Rezervă pe 28 Mai (Luni) — prima Luni cu fereastră pentru 18 Iunie. Aduce act de identitate la vizită.",
-    deadline:"Rezervă pe 28 Mai (Luni la 10:00 fix) — sau 3 Iunie ca alternativă",
-    url:"https://skygarden.london/book-a-visit/",
+    when:"Ziua 2 — Joi 18 Iun · 14:00",
+    note:"Intrare 100% gratuită dar locurile se rezervă în fiecare Luni la 10:00 pentru 3 săptămâni înainte. Rezervă pe 28 Mai (Luni) la 10:00 fix. Rezervă slotul de 14:00 și sosește la 13:55. Aduce act de identitate la vizită.",
+    deadline:"Rezervă pe 28 Mai (Luni la 10:00 fix)",
+    url:"https://skygarden.london/booking/",
     btn:"Rezervă Sky Garden →"
   },
   {
-    id:"horizon22", urgency:"urgent",
-    badge:"Rezervă ACUM — urgent",
+    id:"city-cruises",
+    deadlineIso:"2026-06-17",
+    badge:"Fără rezervare necesară",
+    name:"City Cruises — Croazieră de seară pe Tamisa",
+    when:"Ziua 2 — Joi 18 Iun · ~19:30 · Embankment Pier",
+    note:"Bateaux London și-a suspendat operațiunile în 2025-2026. Alternativa recomandată: City Cruises — croazieră circulară de seară de la Embankment Pier. Fără rezervare, plătești la îmbarcare (~£22/persoană). Vederi nocturne: Tower Bridge, Shard, Parlament. Durată ~1.5 ore.",
+    deadline:"Fără rezervare — prezintă-te la Embankment Pier în seara zilei",
+    url:"https://www.citycruises.com/",
+    btn:"Vezi City Cruises →"
+  },
+  {
+    id:"tower-london",
+    deadlineIso:"2026-06-06",
+    badge:"Rezervă în curând",
+    name:"Tower of London — Bilet intrare",
+    when:"Ziua 4 — Sâmbătă 20 Iun · 09:00 · £37/persoană",
+    note:"Biletul online evită coada la casierie (20-30 min în sezon). Preț online: £34.80/persoană (la casierie £39.80). Cumpărând online intri direct la control. Sosești la 09:00 și mergi DIRECT la Crown Jewels — alocă 30-35 min pentru coadă (sezon de vârf).",
+    deadline:"Rezervă cu 1-2 săptămâni înainte",
+    url:"https://www.hrp.org.uk/tower-of-london/visit/tickets-and-prices/",
+    btn:"Cumpără bilet Tower of London →"
+  },
+  {
+    id:"horizon22",
+    deadlineIso:"2026-06-09",
+    badge:"Rezervă Luni 9 Iunie la 10:00",
     name:"Horizon 22 — Etajul 58 (22 Bishopsgate)",
     when:"Ziua 6 — Luni 22 Iun · 11:00",
-    note:"Cel mai înalt punct de vedere gratuit din Londra (230m). Locurile de luni dimineață se epuizează rapid. Rezervă pe 8 Iunie (Luni) când se deschid sloturile pentru 22 Iunie.",
-    deadline:"Rezervă pe 8 Iunie (Luni) — sloturile apar la 10:00",
+    note:"Cel mai înalt punct de vedere gratuit din Londra (230m). Sloturile online se eliberează în fiecare Luni la 10:00 pentru 2 săptămâni înainte. Walk-in posibil pe zi (QR code la intrare) dar negarantat. Rezervă online pe 9 Iunie (Luni) pentru siguranță.",
+    deadline:"Rezervă pe 9 Iunie (Luni la 10:00) — 8 Iunie e Duminică",
     url:"https://horizon22.co.uk/",
     btn:"Rezervă Horizon 22 →"
   },
   {
-    id:"tower-london", urgency:"soon",
-    badge:"Rezervă în curând",
-    name:"Tower of London — Bilet intrare",
-    when:"Ziua 4 — Sâmbătă 20 Iun · 09:00 · £37/persoană",
-    note:"Biletul online evită coada la casierie (20-30 min în sezon). Cumpărând online poți intra direct la control. Ajungi la 09:00 și mergi DIRECT la Crown Jewels — coada e minimă la deschidere.",
-    deadline:"Rezervă cu 1-2 săptămâni înainte",
-    url:"https://www.hrp.org.uk/tower-of-london/visit/tickets/",
-    btn:"Cumpără bilet Tower of London →"
+    id:"soane-museum",
+    deadlineIso:"2026-06-12",
+    badge:"Rezervă online — gratuit",
+    name:"Sir John Soane's Museum — Picture Room",
+    when:"Ziua 3 — Vin 19 Iun · 15:00",
+    note:"Intrare GRATUITĂ, walk-in acceptat — nu e necesară rezervare online pentru intrare generală. Picture Room: panouri nord la 11:00 și 14:00, panouri sud la 11:00, 15:00 și 16:00 (zilnic). Muzeul este ÎNCHIS Luni și Marți. Vineri 19 Iunie: deschis ✓",
+    deadline:"Nu necesită rezervare — prezintă-te direct",
+    url:"https://www.soane.org/your-visit",
+    btn:"Rezervă Sir John Soane's →"
   }
 ];
 
@@ -625,6 +752,89 @@ function stripEmoji(str) {
     .replace(/\s+/g, ' ')
     .trim();
 }
+
+const TRAVEL_ICON = { tube:"train-simple", bus:"bus", train:"train", walk:"person-simple-walk", dlr:"train-simple" };
+const MODE_LABEL = { tube:"metrou", bus:"autobuz", train:"tren", walk:"mers", dlr:"DLR" };
+function modeLabel(m) { return MODE_LABEL[m] || m; }
+
+// Verified travel times (minutes) between consecutive stops, researched via TfL/Maps.
+// Key: "dayId-stopIndex" → from that stop to the next one.
+const TRAVEL_DATA = {
+  // DAY 1
+  "1-1":{min:47,mode:"train"}, // Stansted Express → Liverpool Street
+  "1-2":{min:10,mode:"walk"},  // Liverpool Street → Spitalfields
+  "1-3":{min:5, mode:"walk"},  // Spitalfields → Shoreditch
+  "1-4":{min:2, mode:"walk"},  // Shoreditch → Beigel Bake
+  "1-5":{min:11,mode:"walk"},  // Beigel Bake → Museum of Home
+  "1-6":{min:25,mode:"bus"},   // Museum of Home → St Dunstan (bus 149/242, 2.6km)
+  "1-7":{min:8, mode:"walk"},  // St Dunstan → Tower Bridge
+  "1-8":{min:20,mode:"walk"},  // Tower Bridge → St Paul's (1.6km)
+  "1-9":{min:5, mode:"walk"},  // St Paul's → Postman's Park
+  "1-10":{min:4,mode:"walk"},  // Postman's Park → Coffee rest
+  "1-11":{min:2,mode:"walk"},  // Coffee → Evensong queue
+  "1-13":{min:8,mode:"tube"},  // Evensong done → Liverpool Street (Central line, 2 stops)
+  "1-14":{min:10,mode:"walk"}, // Liverpool Street hotel → Brick Lane evening
+  // DAY 2
+  "2-0":{min:13,mode:"tube"},  // Liverpool Street → British Museum (Elizabeth line)
+  "2-1":{min:3, mode:"walk"},  // British Museum → Prânz Holborn
+  "2-2":{min:5, mode:"walk"},  // Prânz → Metrou Holborn
+  "2-3":{min:10,mode:"tube"},  // Metrou Holborn → St Stephen Walbrook (Central→Bank)
+  "2-4":{min:7, mode:"walk"},  // St Stephen → Sky Garden (~600m est)
+  "2-5":{min:5, mode:"walk"},  // Sky Garden → Leadenhall
+  "2-6":{min:6, mode:"walk"},  // Leadenhall → St Mary Woolnoth
+  "2-7":{min:2, mode:"walk"},  // St Mary Woolnoth → Metrou Bank
+  "2-8":{min:17,mode:"tube"},  // Bank → Westminster (W&C + Jubilee, change at Waterloo)
+  "2-10":{min:33,mode:"walk"}, // Westminster Evensong → Millennium Bridge (2.8km South Bank!)
+  "2-11":{min:22,mode:"walk"}, // Millennium Bridge → Embankment Pier (1.8km)
+  // DAY 3
+  "3-0":{min:5, mode:"walk"},  // Metrou Green Park → Mic dejun
+  "3-1":{min:8, mode:"walk"},  // Mic dejun → Victoria Memorial
+  "3-2":{min:3, mode:"walk"},  // Victoria Memorial → Schimbarea Gărzii
+  "3-3":{min:3, mode:"walk"},  // Garda → St James's Park
+  "3-4":{min:15,mode:"walk"},  // St James's Park → Big Ben
+  "3-5":{min:15,mode:"walk"},  // Big Ben → Metrou spre Holborn
+  "3-6":{min:15,mode:"tube"},  // Metrou → Prânz Soane's
+  "3-7":{min:2, mode:"walk"},  // Prânz → Coadă Soane's
+  "3-9":{min:3, mode:"walk"},  // Soane's → Metrou Holborn
+  "3-10":{min:20,mode:"tube"}, // Metrou Holborn → Tate Modern
+  "3-11":{min:15,mode:"tube"}, // Tate Modern → British Museum seară
+  // DAY 4
+  "4-0":{min:3, mode:"walk"},  // Metrou Tower Hill → Tower of London
+  "4-1":{min:2, mode:"walk"},  // Tower intrare → Crown Jewels
+  "4-2":{min:3, mode:"walk"},  // Crown Jewels → White Tower
+  "4-3":{min:3, mode:"walk"},  // White Tower → Bloody Tower
+  "4-4":{min:3, mode:"walk"},  // Bloody Tower → Ravens/Ziduri
+  "4-5":{min:5, mode:"walk"},  // Ravens → Tower Bridge
+  "4-6":{min:15,mode:"walk"},  // Tower Bridge → Maltby Street
+  "4-7":{min:5, mode:"walk"},  // Maltby Street → White Cube
+  "4-8":{min:10,mode:"walk"},  // White Cube → Southwark Cathedral
+  "4-9":{min:3, mode:"walk"},  // Southwark Cathedral → London Bridge
+  "4-10":{min:15,mode:"train"},// London Bridge → National Maritime Museum (8min train + 7min walk)
+  "4-11":{min:10,mode:"walk"}, // Maritime Museum → Greenwich Park hill
+  "4-12":{min:12,mode:"walk"}, // Greenwich Park → DLR/tren retur
+  "4-13":{min:5, mode:"walk"}, // DLR Tower area → The Scoop
+  "4-14":{min:5, mode:"walk"}, // The Scoop → Shad Thames apus
+  // DAY 5
+  "5-0":{min:15,mode:"walk"},  // Columbia Road → Brick Lane Sunday (1.5km)
+  "5-1":{min:5, mode:"walk"},  // Brick Lane → Metrou Aldgate East
+  "5-2":{min:3, mode:"walk"},  // Metrou Charing Cross → National Gallery
+  "5-4":{min:8, mode:"walk"},  // West End Live → Prânz Covent Garden
+  "5-5":{min:11,mode:"tube"},  // Prânz → Metrou South Kensington (Piccadilly direct, 7 stops)
+  "5-6":{min:5, mode:"walk"},  // Metrou South Kensington → V&A
+  "5-7":{min:8, mode:"walk"},  // V&A → Hyde Park
+  "5-8":{min:12,mode:"walk"},  // Hyde Park → Diana Memorial Fountain
+  "5-9":{min:5, mode:"walk"},  // Diana Fountain → Serpentine
+  "5-10":{min:15,mode:"walk"}, // Serpentine → Metrou Hyde Park Corner
+  "5-11":{min:12,mode:"walk"}, // Chalk Farm tube → Primrose Hill summit
+  // DAY 6
+  "6-0":{min:10,mode:"walk"},  // Mic dejun → Old Spitalfields
+  "6-1":{min:8, mode:"walk"},  // Old Spitalfields → Horizon 22 (spre clădire)
+  "6-2":{min:2, mode:"walk"},  // Transport stop → coadă Horizon 22
+  "6-4":{min:7, mode:"walk"},  // Horizon 22 → Liverpool Street
+  "6-5":{min:5, mode:"walk"},  // Liverpool Street → Tesco
+  "6-6":{min:3, mode:"walk"},  // Tesco → Peron Stansted Express
+  "6-8":{min:47,mode:"train"}, // Stansted Express → Stansted Airport
+};
 
 // ── PHOTO CACHE & WIKIPEDIA API ───────────────────────────────────────────────
 const photoCache = {};
@@ -668,6 +878,23 @@ function todayDayId() {
   return found ? found.id : 1;
 }
 
+function savedDayId() {
+  try {
+    const saved = parseInt(localStorage.getItem("active-day"), 10);
+    if (saved >= 1 && saved <= DAYS.length) return saved;
+  } catch {}
+  return null;
+}
+function persistDay(id) { try { localStorage.setItem("active-day", String(id)); } catch {} }
+function persistTab(t) { try { localStorage.setItem("active-tab", t); } catch {} }
+function savedTab() {
+  try {
+    const t = localStorage.getItem("active-tab");
+    if (["program","harta","rezervari"].includes(t)) return t;
+  } catch {}
+  return null;
+}
+
 // ── TABS ──────────────────────────────────────────────────────────────────────
 document.querySelectorAll(".nav-tab").forEach(btn => {
   btn.addEventListener("click", () => switchTab(btn.dataset.tab));
@@ -679,6 +906,7 @@ function switchTab(tab) {
   document.getElementById("tab-" + tab).classList.add("active");
   document.querySelector(".nav-tab[data-tab='" + tab + "']").classList.add("active");
   activeTab = tab;
+  persistTab(tab);
   if (tab === "harta") {
     if (!leafMap) initMap();
     else renderMapPins(activeDay);
@@ -710,6 +938,7 @@ function buildStrip(containerId, activeId, onSelect) {
 // ── DAY SELECTION — syncs both tabs ───────────────────────────────────────────
 function selectDay(dayId) {
   activeDay = dayId;
+  persistDay(dayId);
   buildStrip("prog-strip", dayId, selectDay);
   buildStrip("map-strip", dayId, selectDay);
   if (activeTab === "program") renderTimeline(dayId);
@@ -727,9 +956,10 @@ function renderTimeline(dayId) {
   heading.textContent = day.short + ", " + day.date + (dayId === 5 ? " — Solstițiu" : "");
   box.appendChild(heading);
 
-  day.stops.forEach(stop => {
+  day.stops.forEach((stop, idx) => {
     const card = el("div", "stop-card " + stop.type);
     const timeEl = el("div", "stop-time"); timeEl.textContent = stop.time;
+    const numEl = el("div", "stop-num"); numEl.textContent = (idx + 1);
     const iconWrap = el("div", "stop-icon");
     iconWrap.appendChild(ph(TYPE_ICON[stop.type] || "map-pin"));
     const body = el("div", "stop-body");
@@ -738,7 +968,8 @@ function renderTimeline(dayId) {
 
     const allTags = [...(stop.tags || [])];
     const hasTip = !!stop.tip;
-    if (allTags.length || hasTip) {
+    const hasGuide = !!(stop.guide && stop.guide.length);
+    if (allTags.length || hasTip || hasGuide) {
       const tagsEl = el("div", "tags");
       allTags.forEach(t => {
         const cfg = {
@@ -758,13 +989,41 @@ function renderTimeline(dayId) {
         tipTag.appendChild(document.createTextNode("Sfat"));
         tagsEl.appendChild(tipTag);
       }
+      if (hasGuide) {
+        const guideTag = el("span", "tag tag-free");
+        guideTag.style.cssText = "background:#CCFBF1;color:#0F766E";
+        guideTag.appendChild(ph("list-checks"));
+        guideTag.appendChild(document.createTextNode("Ce să faci"));
+        tagsEl.appendChild(guideTag);
+      }
       body.appendChild(tagsEl);
     }
 
     const arrow = el("div", "stop-arrow"); arrow.appendChild(ph("caret-right"));
-    append(card, timeEl, iconWrap, body, arrow);
+    append(card, timeEl, numEl, iconWrap, body, arrow);
     card.addEventListener("click", () => openSheet(stop));
     box.appendChild(card);
+
+    // travel connector to next stop
+    const next = day.stops[idx + 1];
+    if (next) {
+      // Suppress travel pill when consecutive stops share the same coordinates (same venue / multi-part visit).
+      const sameSpot = Math.abs(stop.lat - next.lat) < 0.0005 && Math.abs(stop.lng - next.lng) < 0.0005;
+      if (!sameSpot) {
+        const key = dayId + "-" + idx;
+        const t = TRAVEL_DATA[key];
+        const mode = (t && t.mode) || stop.travelMode || (next.type === "transport" ? "tube" : "walk");
+        const min = t && t.min;
+        const row = el("div", "travel-row");
+        const line1 = el("div", "travel-line");
+        const pill = el("div", "travel-pill");
+        pill.appendChild(ph(TRAVEL_ICON[mode] || "person-simple-walk"));
+        pill.appendChild(document.createTextNode(min ? min + " min " + modeLabel(mode) : modeLabel(mode)));
+        const line2 = el("div", "travel-line");
+        append(row, line1, pill, line2);
+        box.appendChild(row);
+      }
+    }
   });
 }
 
@@ -829,6 +1088,17 @@ async function openSheet(stop) {
   metaEl.appendChild(document.createTextNode(stop.time));
   sheetBody.appendChild(metaEl);
 
+  if (stop.wiki) {
+    const wikiLink = document.createElement("a");
+    wikiLink.className = "sheet-wiki";
+    wikiLink.href = "https://en.wikipedia.org/wiki/" + encodeURIComponent(stop.wiki);
+    wikiLink.target = "_blank";
+    wikiLink.rel = "noopener noreferrer";
+    wikiLink.appendChild(ph("book-bookmark"));
+    wikiLink.appendChild(document.createTextNode("Wikipedia"));
+    sheetBody.appendChild(wikiLink);
+  }
+
   if (stop.tip) {
     const tipEl = el("div", "sheet-tip");
     tipEl.appendChild(ph("lightbulb"));
@@ -843,6 +1113,20 @@ async function openSheet(stop) {
     sheetBody.appendChild(lbl);
     const descEl = el("div", "sheet-desc"); descEl.textContent = stop.desc;
     sheetBody.appendChild(descEl);
+  }
+
+  if (stop.guide && stop.guide.length) {
+    const lbl = el("div", "sheet-guide-label");
+    lbl.appendChild(ph("list-checks"));
+    lbl.appendChild(document.createTextNode("Ce să faci aici"));
+    sheetBody.appendChild(lbl);
+    stop.guide.forEach(item => {
+      const row = el("div", "sheet-guide-item");
+      row.appendChild(ph("check-circle"));
+      const txt = el("span"); txt.textContent = item;
+      row.appendChild(txt);
+      sheetBody.appendChild(row);
+    });
   }
 
   const isTransport = stop.type === "transport";
@@ -895,7 +1179,48 @@ async function openSheet(stop) {
 function closeSheet() {
   sheet.classList.remove("open");
   overlay.classList.remove("show");
+  sheet.style.transform = "";
 }
+
+// Esc closes sheet
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && sheet.classList.contains("open")) closeSheet();
+});
+
+// Swipe-down on sheet handle / header closes
+(function attachSheetSwipe() {
+  let startY = null, currentY = 0, dragging = false;
+  const handleArea = sheet; // entire sheet starts the drag from top
+  function onStart(e) {
+    if (!sheet.classList.contains("open")) return;
+    // only start drag if touch begins in the top 80px of the sheet (handle area)
+    const rect = sheet.getBoundingClientRect();
+    const y = (e.touches ? e.touches[0].clientY : e.clientY);
+    if (y - rect.top > 80) return;
+    startY = y; dragging = true;
+    sheet.style.transition = "none";
+  }
+  function onMove(e) {
+    if (!dragging) return;
+    currentY = (e.touches ? e.touches[0].clientY : e.clientY);
+    const dy = Math.max(0, currentY - startY);
+    sheet.style.transform = "translateY(" + dy + "px)";
+  }
+  function onEnd() {
+    if (!dragging) return;
+    dragging = false;
+    sheet.style.transition = "";
+    const dy = Math.max(0, currentY - startY);
+    if (dy > 100) closeSheet();
+    else sheet.style.transform = "";
+  }
+  handleArea.addEventListener("touchstart", onStart, {passive:true});
+  handleArea.addEventListener("touchmove", onMove, {passive:true});
+  handleArea.addEventListener("touchend", onEnd);
+  handleArea.addEventListener("mousedown", onStart);
+  document.addEventListener("mousemove", onMove);
+  document.addEventListener("mouseup", onEnd);
+})();
 
 // ── REZERVĂRI TAB ─────────────────────────────────────────────────────────────
 function getRezDone() { try { return JSON.parse(localStorage.getItem("rez-done") || "{}"); } catch { return {}; } }
@@ -903,6 +1228,23 @@ function setRezDone(id, val) {
   const d = getRezDone();
   if (val) d[id] = true; else delete d[id];
   localStorage.setItem("rez-done", JSON.stringify(d));
+}
+
+function liveUrgency(b) {
+  const today = new Date(); today.setHours(0,0,0,0);
+  const days = Math.ceil((new Date(b.deadlineIso) - today) / 86400000);
+  if (days <= 7)  return "urgent";
+  if (days <= 21) return "soon";
+  return "ok";
+}
+
+function liveDaysLabel(b) {
+  const today = new Date(); today.setHours(0,0,0,0);
+  const days = Math.ceil((new Date(b.deadlineIso) - today) / 86400000);
+  if (days < 0)  return "Termen depășit!";
+  if (days === 0) return "Rezervă AZI!";
+  if (days === 1) return "Mâine e termenul!";
+  return days + " zile rămase";
 }
 
 function renderRezervari() {
@@ -917,8 +1259,9 @@ function renderRezervari() {
   };
   BOOKINGS.forEach(b => {
     const isDone = !!done[b.id];
-    const cfg = badgeCfg[b.urgency] || badgeCfg.ok;
-    const card = el("div", "rez-card " + b.urgency + (isDone ? " done" : ""));
+    const urgency = isDone ? "ok" : liveUrgency(b);
+    const cfg = badgeCfg[urgency] || badgeCfg.ok;
+    const card = el("div", "rez-card " + urgency + (isDone ? " done" : ""));
 
     const badge = el("div", "rez-badge");
     badge.appendChild(ph(isDone ? cfg.doneIcon : cfg.icon));
@@ -935,6 +1278,11 @@ function renderRezervari() {
     const deadline = el("div", "rez-deadline");
     deadline.appendChild(ph("timer"));
     deadline.appendChild(document.createTextNode(b.deadline));
+    if (!isDone) {
+      const pill = el("span", "rez-days-pill " + urgency);
+      pill.textContent = liveDaysLabel(b);
+      deadline.appendChild(pill);
+    }
 
     const link = document.createElement("a");
     link.className = "btn-book"; link.href = b.url; link.target = "_blank"; link.rel = "noopener noreferrer";
@@ -951,8 +1299,27 @@ function renderRezervari() {
   });
 }
 
+// ── COUNTDOWN ────────────────────────────────────────────────────────────────
+function updateCountdown() {
+  const el = document.getElementById("header-countdown");
+  if (!el) return;
+  const today = new Date(); today.setHours(0,0,0,0);
+  const tripStart = new Date("2026-06-17");
+  const tripEnd   = new Date("2026-06-22");
+  const days = Math.ceil((tripStart - today) / 86400000);
+  if (days > 0) {
+    el.textContent = days + (days === 1 ? " zi" : " zile");
+  } else if (today <= tripEnd) {
+    el.textContent = "Ziua " + (Math.floor((today - tripStart) / 86400000) + 1) + " din 6";
+  } else {
+    el.textContent = "17–22 Iun";
+  }
+}
+
 // ── BOOT ──────────────────────────────────────────────────────────────────────
-const startDay = todayDayId();
+updateCountdown();
+setInterval(updateCountdown, 60000);
+const startDay = savedDayId() || todayDayId();
 activeDay = startDay;
 buildLegend();
 buildStrip("prog-strip", startDay, selectDay);
@@ -960,6 +1327,8 @@ buildStrip("map-strip", startDay, selectDay);
 renderTimeline(startDay);
 prefetchDay(startDay);
 renderRezervari();
+const initialTab = savedTab();
+if (initialTab && initialTab !== "program") switchTab(initialTab);
 </script>
 </body>
 </html>
