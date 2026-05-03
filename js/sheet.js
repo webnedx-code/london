@@ -128,8 +128,8 @@ export const openSheet = async (stop) => {
   requestAnimationFrame(() => $sheet().classList.add("is-open"));
 
   // Lazy photo
-  if (stop.wiki) {
-    const url = await getPhoto(stop.wiki);
+  if (stop.wiki || stop.photo) {
+    const url = await getPhoto(stop.wiki, stop.photo);
     if (token !== sheetToken) return;
     if (url && loader.parentNode) {
       const img = document.createElement("img");

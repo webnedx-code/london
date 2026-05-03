@@ -6,7 +6,12 @@ import { DAYS } from "../data/trip.js";
 
 const cache = {};
 
-export const getPhoto = async (wiki) => {
+export const getPhoto = async (wiki, directUrl) => {
+  if (directUrl) {
+    const url = `https://wsrv.nl/?url=${encodeURIComponent(directUrl)}&w=800&h=800&fit=cover&output=jpg`;
+    cache[wiki || directUrl] = url;
+    return url;
+  }
   if (!wiki) return null;
   if (wiki in cache) return cache[wiki];
   try {
@@ -35,6 +40,7 @@ export const prefetchDay = (dayId) => {
   const day = DAYS.find((d) => d.id === dayId);
   if (!day) return;
   day.stops.forEach((s) => {
-    if (s.wiki && !(s.wiki in cache)) getPhoto(s.wiki);
+    if (s.photo) getPhoto(s.wiki, s.photo);
+    else if (s.wiki && !(s.wiki in cache)) getPhoto(s.wiki);
   });
 };
